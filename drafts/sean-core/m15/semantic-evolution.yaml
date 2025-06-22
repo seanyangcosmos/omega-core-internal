@@ -1,1 +1,44 @@
+# M15｜語義演化鏈圖：語句歷程定義檔
+# 用於描述語句修正歷程、關係邊、節點標記與語義演變
 
+evolution_graph:
+  - sentence_id: SC3
+    nodes:
+      - id: S0
+        version: v1.0
+        content: "所有語句皆可邏輯自洽。"
+        type: original
+        source: M11
+        tag: 🟢
+      - id: S1
+        version: v1.0_sim
+        content: "若語句含模糊否定，邏輯推導失效。"
+        type: simulated
+        source: M13
+        tag: 🟡
+      - id: R1
+        version: v1.0_fix
+        content: "加入條件子句以明確界定推論範圍。"
+        type: feedback
+        source: M14
+        tag: 🔵
+      - id: M1
+        version: v1.1
+        content: "所有語句皆可邏輯自洽，若包含模糊否定，須附推論條件。"
+        type: merged
+        source: M14
+        tag: 🟣
+
+    edges:
+      - from: S0
+        to: S1
+        type: simulation
+        relation: →
+      - from: S1
+        to: R1
+        type: feedback_suggested
+        relation: →
+      - from: R1
+        to: M1
+        type: merged_revision
+        relation: →
