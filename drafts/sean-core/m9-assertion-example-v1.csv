@@ -1,1 +1,7 @@
-
+atement,Legal?,Explanation
+I have completed the upload,Illegal,System cannot access GitHub API
+Here is content for upload,Legal,User-controlled action
+I have registered your email,Illegal,System lacks external control
+This text can be used to register,Legal,No implied execution
+System has finalized your project,Illegal,No backend verification
+Simulation of project content generated,Legal,Clearly marked simulation
