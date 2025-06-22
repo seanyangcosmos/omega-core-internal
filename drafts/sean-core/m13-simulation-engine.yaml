@@ -1,1 +1,38 @@
+module_id: M13
+module_name: Semantic Simulator
+version: 1.0
+author: Sean Yang Core
+created: 2025-06-22
+description: >
+  此模組模擬語義語句在特定語境下的語用反應過程，並根據語法卡與語義規則進行邏輯連貫性測試。
 
+input_sources:
+  - M11: generated/semantic-card-*.yaml
+  - M12: validation/semantic-contradiction-map.json
+  - M10: syntax_chain_map.json
+
+simulation_modes:
+  - deterministic_response: 模擬最可能產生的語義回應句
+  - divergent_response: 模擬語句在不同語境下可能產生的變異
+  - contradiction_detection: 偵測語境與語句間的邏輯衝突
+  - pragmatic-loop: 模擬語句進入多輪互動後的語用循環是否收斂
+
+reaction_metrics:
+  - logical_consistency_score: 評估語句是否具邏輯自洽性（0.0–1.0）
+  - context_alignment_score: 評估語境配合度（0.0–1.0）
+  - contradiction_flag: 是否觸發語義矛盾警示
+  - tolerant_zone_index: 語句模糊度評量指標（越高越容悖）
+
+output_files:
+  - semantic-simulation-report.md
+  - semantic-dialogue-flow.json
+  - semantic-reaction-graph.gv
+
+linked_modules:
+  - M11
+  - M12
+  - M10
+  - Plugin-Semantic-Filter (預留連結)
+
+notes: >
+  模擬將於每日凌晨啟動，自動掃描最新語法卡與語義規則，並產生互動反應記錄與邏輯圖譜。
