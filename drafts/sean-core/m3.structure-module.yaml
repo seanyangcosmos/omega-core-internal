@@ -1,1 +1,14 @@
-
+module_id: M3
+version: 1.0
+core_type: Structural
+syntax_fields:
+  - module_name
+  - purpose
+  - recursion_type
+  - operator_list
+semantic_tags:
+  - closed_system
+  - feedback_loop
+linked_modules:
+  - M1
+  - M2
