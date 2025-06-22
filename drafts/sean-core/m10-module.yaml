@@ -1,1 +1,44 @@
+module_id: M10
+module_name: Module Integrity Check and Syntax Chain Mapping
+version: 1.0
+author: Sean Yang Core
+created: 2025-06-22
+type: integrity-check
+status: stable
+description: >
+  此模組負責統一稽核核心模組 M1–M9 之間的邏輯一致性、欄位對齊與語法鏈結正確性，並生成語法圖譜與鏈結矩陣。
 
+input_modules:
+  - M1
+  - M2
+  - M3
+  - M4
+  - M5
+  - M6
+  - M7
+  - M8.1
+  - M8.2
+  - M8.3
+  - M8.4
+  - M8.5
+  - M8.6
+  - M9
+
+output_files:
+  - m10-integrity-audit-v1.yaml
+  - m10-syntax-map-v1.json
+  - m10-chain-matrix-v1.csv
+
+linked_modules:
+  - M11
+  - V9
+  - V10
+
+tags:
+  - audit
+  - consistency
+  - syntax-linkage
+  - semantic-check
+
+notes: >
+  此模組作為系統完整性回饋核心，未來將與模組生成器（M11）與語義驗證器（M12）形成閉環稽核體系。
