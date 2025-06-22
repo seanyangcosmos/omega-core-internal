@@ -1,19 +1,21 @@
 module_id: M9
 version: 1.0
-core_type: Pragmatic Control
-pragmatic_assertion_rules:
-  - id: R1
-    type: factual_verification
-    description: 語句必須指涉一個已存在並可驗證的事實事件
-  - id: R2
-    type: tense_alignment
-    description: 語句所用語態需與真實完成狀態一致
-  - id: R3
-    type: capability_boundary
-    description: 系統所聲稱的行為，必須在其能力或權限範圍內
+type: pragmatic-guard
+author: Sean Yang Core
 
-violation_handling:
-  - mode: rewrite
-    strategy: 改寫不當語句為條件語句
-  - mode: alert
-    strategy: 提醒使用者「該語句尚未實際完成或執行」
+rules:
+  - id: R1
+    name: factual_verification
+    description: All assertions must reflect actual executed facts
+
+  - id: R2
+    name: tense_alignment
+    description: Tense must match factual time condition
+
+  - id: R3
+    name: capability_compatibility
+    description: Only statements within system's power may be output
+
+violation_strategies:
+  - rewrite: use conditional or hypothetical forms
+  - alert: warn user when assertion exceeds bounds
