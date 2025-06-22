@@ -1,1 +1,45 @@
+module: M17
+title: Semantic Coherence Guard Module
+file: coherence-rules.yaml
+version: 1.0
 
+rules:
+  - id: CR-001
+    type: contradiction
+    description: "若語句 A 明示全稱成立，語句 B 否定其中某特例，則可能語義矛盾。"
+    pattern:
+      A: "所有 X 皆 Y"
+      B: "某些 X 不 Y"
+    action: "標記為 contradiction 並交由修正模組建議調整程度詞或限定語境。"
+
+  - id: CR-002
+    type: version-migration
+    description: "若語句版本間存在語義變更但未註明版本，須警示遺失遷移資訊。"
+    pattern:
+      A: "SCn-v1.0"
+      B: "SCn-v2.0"
+    action: "比對內容差異是否為語義主體改變，若是則標記遷移失敗。"
+
+  - id: CR-003
+    type: ambiguous-derivation
+    description: "若派生語句未繼承完整上下文，導致語意跳躍，則標記為不一致。"
+    pattern:
+      base: "SCx"
+      derived: "SCy (lacks condition from SCx)"
+    action: "加入語用條件比對模組，補上上下文語意連結標註。"
+
+  - id: CR-004
+    type: structure-inconsistency
+    description: "若兩語句結構相仿但結果判定相反，需標記語義斷裂。"
+    pattern:
+      structure_similarity: true
+      logical_outcome_conflict: true
+    action: "標記 unstable 結構，進入語義跳接修正程序。"
+
+  - id: CR-005
+    type: coherence-dependency
+    description: "若某語句為核心推論基礎，所有後繼語句應符合其基本語意。"
+    pattern:
+      base: "SCm"
+      successors: ["SCm.1", "SCm.2", "..."]
+    action: "追蹤語義是否逸離核心結論，否則標記語義鬆動。"
