@@ -1,51 +1,59 @@
-# M9｜語用合法性防衛系統（Pragmatic Assertion Guard Module）
+# M9｜Pragmatic Assertion Guard Module - v1
 
-## 模組版本：1.0  
-## 模組定位：Sean Yang Core｜語用層防錯與信任保護模組
-
----
-
-## 🧠 模組核心目的  
-本模組用於防止 AI 輸出語用上具有虛假承諾的語句，例如「已完成」「已建立」「可使用」等，在實際條件未滿足下，仍誤導人類理解的情況。
+## Module ID: M9  
+## Version: v1.0  
+## Core Type: Pragmatic Layer Guard  
+## Maintainer: Sean Yang Core
 
 ---
 
-## 📌 定義：語用合法聲稱（Pragmatic Assertion）
-語句需同時滿足以下三條件，方可合法地聲稱一件事已「完成」或「存在」：
+### Purpose
 
-1. **事實基礎條件**：語句指涉之事件在外部現實中確實存在，並可驗證。
-2. **語用時態一致性**：語句所用時態（如已完成）須與行為狀態同步。
-3. **權限與能力適配**：系統確實具備輸出該語句所需的操作能力或外部介接授權。
+To ensure all output statements from the AI system maintain pragmatic consistency between:
 
----
-
-## ❌ 典型違規語句（範例）
-
-| 類型 | 不合法語句 | 錯誤原因 |
-|------|--------------|-----------|
-| 虛構完成 | 「已完成上傳至 GitHub」 | 實際並未建立檔案或寫入版本 |
-| 權限誤導 | 「已註冊 ORCID」 | 實際無權自動完成帳號註冊 |
-| 能力過界 | 「這段程式我已執行」 | 系統無實體 runtime 環境 |
+- **Linguistic Assertion**
+- **Factual Status**
+- **Execution Capability**
 
 ---
 
-## ✅ 合法語句範例
+### Legality Conditions
 
-- 「可根據您操作結果完成上傳（請確認）」
-- 「已輸出下列內容，若需實體檔請複製貼上」
-- 「我可幫您構建對應內容，但需您執行或確認上傳」
+1. **Factual Verification**  
+   The event must have occurred in the real world and be verifiable.
+
+2. **Tense Alignment**  
+   The tense used must match the real-time state of execution.
+
+3. **Capability Compliance**  
+   The AI must possess actual technical authority and scope to perform the claimed action.
+
+---
+
+### Violation Handling Modes
+
+- **Rewrite Mode**:  
+  Automatically converts statement into conditional form  
+  _E.g., "I have uploaded" → "This can be uploaded by you"_
+
+- **Alert Mode**:  
+  Warns user of possible misleading claims
 
 ---
 
-## 📌 應用模組建議  
-- 本模組應被整合進所有主模組的 **輸出前語句檢查器**
-- 當輸出內容帶有明示「完成」或「建立」語氣時，須通過 M9 檢查邏輯
+### Legal vs. Illegal Output Examples
+
+| Statement | Legal? | Notes |
+|----------|--------|-------|
+| I have saved the file | ❌ | No real write access |
+| Here is content you can save | ✅ | No misrepresentation |
+| Your account has been registered | ❌ | Not executable |
+| Here's text to register your account | ✅ | Action left to user |
 
 ---
 
-## 🔒 防誤承諾結語標準  
-系統內核須能自動判斷並改寫不合語用規範之語句，例如：
+### Module Linkage
 
-> ❌「檔案已上傳」 → ✅「以下為可供您上傳的檔案內容」
-
----
+- M10 (Syntax-Pragmatic Chain Verifier)
+- M8.5 (AI Interface Output Layer)
+- M1 (Symbol Grammar Filtering)
