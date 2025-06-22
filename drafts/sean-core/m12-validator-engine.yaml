@@ -1,1 +1,38 @@
+module_id: M12
+module_name: Semantic Validator
+version: 1.0
+author: Sean Yang Core
+created: 2025-06-22
+description: >
+  此模組負責驗證由語義生成器（M11）所產出之語法卡、語義規則與語句範本的邏輯一致性、語境合法性與容悖衝突。
 
+input_sources:
+  - M11: generated/semantic-card-*.yaml
+  - M9: pragmatic_assertion_matrix.csv
+  - M10: syntax_linkage_map.json
+
+validation_checks:
+  - closed_consistency_check: 檢查封閉語法邏輯自洽性
+  - context_compatibility_check: 語境對應之語義合法性範圍稽核
+  - contradiction_detection: 跨語法卡衝突點偵測
+  - tolerant_zone_alert: 模糊區與容悖句型標記
+  - logical_path_tracking: 語義路徑推導完整性追蹤
+
+output_files:
+  - semantic-validation-report.md
+  - semantic-contradiction-map.json
+  - semantic-logic-graph.gv
+
+linked_modules:
+  - M11
+  - M13 (預留模擬器)
+  - Plugin-Semantic-Filter (未來外掛語義驗證器)
+
+tags:
+  - validation
+  - contradiction
+  - logical_consistency
+  - semantic_path
+
+notes: >
+  此模組將與語義模擬器 M13 串接，建立語用互動與語境推理的自動檢核架構。
