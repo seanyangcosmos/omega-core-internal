@@ -1,1 +1,44 @@
-
+{
+  "conflict_cases": [
+    {
+      "id": "CC-001",
+      "rule": "CR-001",
+      "description": "全稱與特例衝突",
+      "sentence_A": "所有封閉系統皆收斂。",
+      "sentence_B": "某些封閉系統可能不收斂。",
+      "flag": "contradiction"
+    },
+    {
+      "id": "CC-002",
+      "rule": "CR-002",
+      "description": "版本遷移缺失",
+      "sentence_A": "SC5-v1.0：語用模組僅作輸入驗證。",
+      "sentence_B": "SC5-v2.0：語用模組能主動修正語義誤差。",
+      "flag": "version-migration"
+    },
+    {
+      "id": "CC-003",
+      "rule": "CR-003",
+      "description": "衍生語句脫離上下文",
+      "sentence_A": "若封閉語境內成立，則句 SC7 合理。",
+      "sentence_B": "SC7：此結論應普遍適用。",
+      "flag": "ambiguous-derivation"
+    },
+    {
+      "id": "CC-004",
+      "rule": "CR-004",
+      "description": "結構相似但結論相反",
+      "sentence_A": "語法規則 A 對語句 B 合法。",
+      "sentence_B": "語法規則 A 不適用於語句 B。",
+      "flag": "structure-inconsistency"
+    },
+    {
+      "id": "CC-005",
+      "rule": "CR-005",
+      "description": "核心結論被新句弱化",
+      "sentence_A": "SC9 為一統模型的核心基礎。",
+      "sentence_B": "SC9 僅為歷史性觀察之一。",
+      "flag": "coherence-dependency"
+    }
+  ]
+}
