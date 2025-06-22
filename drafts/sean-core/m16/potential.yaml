@@ -1,1 +1,46 @@
+# potential.yaml
+# Semantic Potential Structure for M16
 
+- sentence_id: SC3
+  base: "所有語句皆可邏輯自洽。"
+  expansions:
+    - clause: "除非語義中含有未定義項。"
+      type: "exception"
+      intensity: 0.7
+      tag: "模糊控制"
+    - clause: "須在封閉語境內進行演繹。"
+      type: "constraint"
+      intensity: 0.8
+      tag: "封閉語境"
+    - clause: "如涉及模糊語句，須加入語用條件。"
+      type: "condition"
+      intensity: 0.9
+      tag: "語用條件"
+
+- sentence_id: SC7
+  base: "語句之間可構成語義鏈。"
+  expansions:
+    - clause: "語義鏈可因上下文而變異。"
+      type: "contextual"
+      intensity: 0.6
+      tag: "語境依賴"
+    - clause: "潛在鏈結需經語法一致性驗證。"
+      type: "validation"
+      intensity: 0.8
+      tag: "一致性檢查"
+    - clause: "語義跳接須標記來源與關係。"
+      type: "structure"
+      intensity: 0.85
+      tag: "標記語義路徑"
+
+- sentence_id: SC9
+  base: "模擬語句可預測潛在語義分支。"
+  expansions:
+    - clause: "語義分支需具可追蹤結構。"
+      type: "structure"
+      intensity: 0.75
+      tag: "結構化演化"
+    - clause: "潛在語句應能連結語用意圖。"
+      type: "intention"
+      intensity: 0.9
+      tag: "語用連結"
