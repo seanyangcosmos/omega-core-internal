@@ -1,1 +1,42 @@
-
+{
+  "sentence_id": "SC3",
+  "evolution_chain": [
+    {
+      "id": "S0",
+      "version": "v1.0",
+      "type": "original",
+      "content": "所有語句皆可邏輯自洽。",
+      "tag": "🟢",
+      "source": "M11"
+    },
+    {
+      "id": "S1",
+      "version": "v1.0_sim",
+      "type": "simulated",
+      "content": "若語句含模糊否定，邏輯推導失效。",
+      "tag": "🟡",
+      "source": "M13"
+    },
+    {
+      "id": "R1",
+      "version": "v1.0_fix",
+      "type": "feedback",
+      "content": "加入條件子句以明確界定推論範圍。",
+      "tag": "🔵",
+      "source": "M14"
+    },
+    {
+      "id": "M1",
+      "version": "v1.1",
+      "type": "merged",
+      "content": "所有語句皆可邏輯自洽，若包含模糊否定，須附推論條件。",
+      "tag": "🟣",
+      "source": "M14"
+    }
+  ],
+  "relations": [
+    { "from": "S0", "to": "S1", "type": "simulation", "relation": "→" },
+    { "from": "S1", "to": "R1", "type": "feedback_suggested", "relation": "→" },
+    { "from": "R1", "to": "M1", "type": "merged_revision", "relation": "→" }
+  ]
+}
