@@ -1,1 +1,19 @@
-
+{
+  "modules": [
+    {"id": "M1", "type": "core", "links_to": ["M2", "M4", "M8.1"]},
+    {"id": "M2", "type": "recursive", "links_to": ["M3", "M5"]},
+    {"id": "M3", "type": "closed-logic", "links_to": ["M6"]},
+    {"id": "M4", "type": "open-syntax", "links_to": ["M8.1", "M8.3"]},
+    {"id": "M5", "type": "structure-core", "links_to": ["M6", "M8.4"]},
+    {"id": "M6", "type": "pragmatic-shield", "links_to": ["M8.5", "M9"]},
+    {"id": "M7", "type": "inverse-engine", "links_to": ["M8.6"]},
+    {"id": "M8.1", "type": "semantic-model", "links_to": ["M8.2", "M9"]},
+    {"id": "M8.2", "type": "pragmatic-rule", "links_to": ["M8.3"]},
+    {"id": "M8.3", "type": "pragmatic-bridge", "links_to": ["M8.4"]},
+    {"id": "M8.4", "type": "context-map", "links_to": ["M9"]},
+    {"id": "M8.5", "type": "ai-interface", "links_to": ["M9"]},
+    {"id": "M8.6", "type": "meta-pragmatics", "links_to": ["M10"]},
+    {"id": "M9", "type": "assertion-guard", "links_to": ["M10"]},
+    {"id": "M10", "type": "integrity-check", "links_to": []}
+  ]
+}
