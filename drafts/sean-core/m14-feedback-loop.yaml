@@ -1,1 +1,51 @@
+module_id: M14
+module_name: Semantic Feedback Learner
+version: 1.0
+author: Sean Yang Core
+created: 2025-06-22
 
+description: >
+  此模組比對語句模擬（M13）與語法卡（M11）間的偏差，產生語義修正建議，並自動更新語法卡，實現語義閉環進化。
+
+input_sources:
+  - M11: ./semantic-card-*.yaml
+  - M13: ./semantic-dialogue-flow.json
+  - M12: ./semantic-contradiction-map.json
+  - M10: ./syntax_chain_map.json
+
+feedback_engine:
+  detection_strategy:
+    - type: deviation-flag
+      rule: if logical_consistency_score < 0.7 or contradiction_flag == true
+      action: mark as conflict
+    - type: tolerance-check
+      rule: if tolerant_zone_index > 0.8
+      action: suggest containerized syntax
+
+  correction_rules:
+    - type: adjust_tolerance
+      target: semantic_card.meta.tolerant_range
+      method: linear shift
+      delta: ±0.1 (based on simulation result)
+    - type: revise_rule
+      condition: contradiction_flag == true
+      action: insert "conditional_clause" or "semantic_scope"
+
+update_behavior:
+  - generate_diff: true
+  - version_backup: true
+  - write_patch_file: true
+  - validation_after_update: true
+
+output_files:
+  - semantic-feedback-diff.md
+  - semantic-card-updated.yaml
+  - semantic-feedback-map.json
+  - patch/m11-feedback-revision-*.yaml
+
+logging:
+  enabled: true
+  logfile: logs/m14-feedback.log
+
+notes: >
+  所有修正將保留原始語法卡版本，並生成對應補丁（patch）檔，未經驗證者不自動併入主卡。
