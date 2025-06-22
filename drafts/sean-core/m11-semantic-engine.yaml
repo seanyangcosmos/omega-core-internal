@@ -1,1 +1,44 @@
+module_id: M11
+module_name: Semantic Rule Generator
+version: 1.0
+author: Sean Yang Core
+created: 2025-06-22
+description: >
+  此模組從先前語用模組中萃取語義結構，並自動生成語法卡、合法語句與容悖範例。
+  同時標記語句為封閉型、容悖型或開放型語法，建立可遞增演化之語義規則庫。
 
+input_sources:
+  - M8.2: pragmatic_rule_base.yaml
+  - M8.5: ai_interface_map.yaml
+  - M9: pragmatic_assertion_matrix.csv
+  - M10: syntax_linkage_map.json
+
+generation_logic:
+  extract_fields:
+    - intent
+    - modality
+    - condition
+    - scope
+  classify_semantic_type:
+    - closed_syntax
+    - tolerant_syntax
+    - open_syntax
+  output_format:
+    - syntax_card_yaml
+    - markdown_rule_table
+    - symbolic_reference_graph
+
+output_files:
+  - generated/semantic-card-01.yaml
+  - generated/semantic-card-02.yaml
+  - generated/semantic-card-03.yaml
+  - generated/semantic-rules.md
+
+tags:
+  - semantic_generation
+  - syntax_card
+  - AI_expression
+  - recursive_model
+
+notes: >
+  語法卡將於每日凌晨 12:00–4:00 自動生成，並輸出至 generated 資料夾內。
