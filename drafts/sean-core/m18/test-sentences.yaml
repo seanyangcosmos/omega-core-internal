@@ -1,1 +1,13 @@
+sentences:
+  - sentence: "某些封閉系統不收斂。"
+    context: "所有封閉系統皆收斂。"
+    allow_paradox: false
 
+  - sentence: "S ↔ ¬S"
+    allow_paradox: false
+
+  - sentence: "該結論普遍適用。"
+    context: ""
+
+  - sentence: "SC9 僅為歷史性觀察之一。"
+    context: "SC9 為系統核心結論。"
