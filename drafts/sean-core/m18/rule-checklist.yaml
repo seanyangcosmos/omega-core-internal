@@ -1,1 +1,43 @@
+module: M18
+title: Semantic Rule Validator - Rule Checklist
+version: 1.0
 
+rules:
+  - id: SR-001
+    type: universal-contradiction
+    description: "若語句 A 明示全稱成立，語句 B 否定其中某特例，則視為語義違規。"
+    pattern:
+      A: "所有 X 皆 Y"
+      B: "某些 X 不 Y"
+    severity: high
+
+  - id: SR-002
+    type: forbidden-paradox
+    description: "若語句自我否定，且未標記為容悖語句，則違規。"
+    pattern:
+      A: "S ↔ ¬S"
+    condition: "allow_paradox == false"
+    severity: critical
+
+  - id: SR-003
+    type: ambiguous-structure
+    description: "若語句結構缺乏上下文支持，導致語義模糊，則違規。"
+    pattern:
+      missing_context: true
+    severity: medium
+
+  - id: SR-004
+    type: evolution-divergence
+    description: "語句演化版本若違反原始語義主體，需標記違規。"
+    pattern:
+      base_meaning: "A"
+      derived_meaning: "¬A"
+    severity: high
+
+  - id: SR-005
+    type: meta-inconsistency
+    description: "若語句聲稱自我語義結構，但實際未形成封閉回路，則違規。"
+    pattern:
+      declares_self_consistency: true
+      actual_consistency: false
+    severity: critical
