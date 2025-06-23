@@ -1,1 +1,7 @@
-
+trust_rules:
+  - id: TR-001
+    description: 語義鏈結構必須閉合，無孤立單位
+  - id: TR-002
+    description: 語義主體性單位不可缺失
+  - id: TR-003
+    description: 依賴鏈結構不得斷裂
