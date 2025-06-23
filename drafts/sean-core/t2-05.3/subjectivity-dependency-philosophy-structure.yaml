@@ -1,1 +1,9 @@
-
+philosophy_structure:
+  - subjectivity:
+      description: 語義主體性的自我封閉與穩定性來源
+  - semantic_dependency:
+      description: 語義鏈結構的開放拓展與依賴關係
+  - open_closed_dynamics:
+      description: 開放封閉結構的相對動態與哲學統攝
+  - dual_track_stability:
+      description: 雙軌動態監控保障結構邏輯與演化穩定
