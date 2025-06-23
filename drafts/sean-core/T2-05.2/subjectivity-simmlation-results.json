@@ -1,1 +1,15 @@
-
+{
+  "summary": {
+    "total_cases": 5,
+    "self_mapping_detected": 4,
+    "self_evaluation_passed": 3,
+    "stability_distribution": {
+      "stable": 2,
+      "unstable": 2,
+      "neutral": 1
+    }
+  },
+  "simulation_results": [
+    { ... 單筆詳細結果，與原版本相同 ... }
+  ]
+}
