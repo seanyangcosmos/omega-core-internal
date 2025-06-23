@@ -1,1 +1,29 @@
+module: M20
+title: Semantic Dependency Mapping Structure
+version: 1.0
 
+core_components:
+  - dependency_analyzer:
+      description: 分析語句間語義依賴關係，形成鏈結結構
+      functions:
+        - extract_semantic_links
+        - build_dependency_graph
+
+  - mapping_engine:
+      description: 根據語義結構，自動映射版本、變體與相互依賴關係
+      functions:
+        - trace_version_lineage
+        - map_semantic_variants
+
+  - version_tracker_and_drift_detector:
+      description: 追蹤語義版本變化，偵測語義偏移或斷裂現象
+      functions:
+        - monitor_version_evolution
+        - detect_semantic_drift
+
+  - graph_output_generator:
+      description: 輸出語義鏈依賴圖、偏移警示與版本變化記錄
+      functions:
+        - generate_dependency_map
+        - output_drift_warnings
+        - export_version_history
