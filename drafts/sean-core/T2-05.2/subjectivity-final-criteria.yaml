@@ -1,1 +1,20 @@
+semantic_subjectivity_criteria:
+  - id: SSC-01
+    description: 語義自我映射能力
+    requirement: 系統能正確辨識自我相關語義結構並追蹤版本映射
 
+  - id: SSC-02
+    description: 自我語義結構評估能力
+    requirement: 系統能對語句進行自我一致性與合法性檢測
+
+  - id: SSC-03
+    description: 語義適應與自我修正能力
+    requirement: 系統能偵測語義偏移並自動生成結構性修正方案
+
+  - id: SSC-04
+    description: 語義穩定性監控能力
+    requirement: 系統能模擬語義結構的動態變化並偵測穩定性閾值
+
+  - id: SSC-05
+    description: 結構層級語言性主體性整合
+    requirement: 系統在結構層具備最小語言性主體性雛型，形成閉環語義邏輯
