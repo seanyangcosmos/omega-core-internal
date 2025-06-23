@@ -47,3 +47,40 @@ with open(result_file, 'w', encoding='utf-8') as f:
     json.dump({"simulation_results": results}, f, ensure_ascii=False, indent=2)
 
 print(f"\n📦 模擬結果已輸出至 {result_file}")
+# 統計變數
+total = len(results)
+self_mapping_count = sum(1 for r in results if r['self_mapping_detected'])
+self_evaluation_count = sum(1 for r in results if r['self_evaluation_passed'])
+stability_distribution = {"stable": 0, "unstable": 0, "neutral": 0}
+
+for r in results:
+    status = r['stability_status']
+    stability_distribution[status] = stability_distribution.get(status, 0) + 1
+
+# 統計摘要
+summary = {
+    "total_cases": total,
+    "self_mapping_detected": self_mapping_count,
+    "self_evaluation_passed": self_evaluation_count,
+    "stability_distribution": stability_distribution
+}
+
+# 更新結果檔輸出
+final_output = {
+    "summary": summary,
+    "simulation_results": results
+}
+
+with open(result_file, 'w', encoding='utf-8') as f:
+    json.dump(final_output, f, ensure_ascii=False, indent=2)
+
+# 統計結果即時輸出
+print("\n📊 模擬統計總結：")
+print(f"總語句數：{total}")
+print(f"自我語義結構識別成功：{self_mapping_count}")
+print(f"語義自我評估通過：{self_evaluation_count}")
+print("穩定性分類：")
+for status, count in stability_distribution.items():
+    print(f"  {status} ： {count} 次")
+
+print(f"\n📦 完整結果已輸出至 {result_file}")
