@@ -1,1 +1,31 @@
-
+{
+  "summary": {
+    "total_sentences": 3,
+    "embedded_in_dependency_map": 2,
+    "detected_drift_warnings": 1,
+    "overall_status": "partially unstable"
+  },
+  "details": [
+    {
+      "id": "SUB-01",
+      "self_mapping": true,
+      "dependency_valid": true,
+      "drift_detected": false,
+      "notes": "語句成功嵌入語義鏈，結構穩定"
+    },
+    {
+      "id": "SUB-02",
+      "self_mapping": true,
+      "dependency_valid": true,
+      "drift_detected": true,
+      "notes": "依賴結構偏移，觸發穩定性警示"
+    },
+    {
+      "id": "SUB-03",
+      "self_mapping": true,
+      "dependency_valid": false,
+      "drift_detected": false,
+      "notes": "語句為獨立結構，未嵌入語義鏈"
+    }
+  ]
+}
