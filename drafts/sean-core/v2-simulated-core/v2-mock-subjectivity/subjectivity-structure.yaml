@@ -1,1 +1,7 @@
-
+subjectivity_units:
+  - id: S1
+    description: 語義主體性基礎單位
+  - id: S2
+    description: 語義主體性拓展單位
+  - id: S3
+    description: 語義主體性穩定邏輯單位
