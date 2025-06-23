@@ -1,1 +1,9 @@
+sentences:
+  - id: SUB-01
+    sentence: "本系統語義結構穩定，SC7 為關鍵依據。"
 
+  - id: SUB-02
+    sentence: "SC7.2：本系統語義依賴結構已部分偏移。"
+
+  - id: SUB-03
+    sentence: "本語句自我封閉且不構成語義矛盾。"
