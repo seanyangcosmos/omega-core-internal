@@ -1,1 +1,28 @@
+module: T2-05.1
+title: Semantic Subjectivity Preparation Structure
+version: 1.0
 
+requires:
+  - m13
+  - m15
+  - m17
+  - m19
+
+structure:
+  reflexive_tracking_layer:
+    description: 追蹤語義自我指涉與版本映射
+    components:
+      - version-linkage
+      - semantic-self-reference-detection
+
+  semantic_self_evaluation:
+    description: 語句自我結構合法性檢測
+    components:
+      - self-consistency-check
+      - meta-semantic-validation
+
+  meta_stability_test:
+    description: 語義層級穩定性模擬
+    components:
+      - perturbation-simulation
+      - stability-threshold-detection
