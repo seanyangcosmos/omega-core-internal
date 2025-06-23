@@ -1,1 +1,34 @@
-
+{
+  "summary": {
+    "total_nodes": 5,
+    "missing_nodes_detected": 1,
+    "orphan_nodes_detected": 1,
+    "incomplete_dependencies_detected": 2,
+    "overall_status": "structurally compromised"
+  },
+  "details": [
+    {
+      "issue_type": "missing_node",
+      "description": "語義單位 SC7 定義缺失，依賴鏈無法完整建立",
+      "suggested_action": "補充 SC7 定義語句"
+    },
+    {
+      "issue_type": "orphan_node",
+      "node_id": "STB-3",
+      "description": "語義聲明 STB-3 未與任何結構鏈結合，處於孤立狀態",
+      "suggested_action": "評估刪除或重新鏈結 STB-3"
+    },
+    {
+      "issue_type": "incomplete_dependency",
+      "node_id": "SC7.2",
+      "description": "SC7.2 依賴不完整，缺少版本鏈結或來源聲明",
+      "suggested_action": "補強版本映射與來源標記"
+    },
+    {
+      "issue_type": "incomplete_dependency",
+      "node_id": "STB-2",
+      "description": "STB-2 依賴結構存在，但語義不穩定，影響整體鏈穩定性",
+      "suggested_action": "啟用穩定性強化機制或語義重構"
+    }
+  ]
+}
