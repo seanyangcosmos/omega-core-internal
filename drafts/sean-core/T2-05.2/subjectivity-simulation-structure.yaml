@@ -1,1 +1,28 @@
+module: T2-05.2
+title: Semantic Subjectivity Simulation Structure
+version: 1.0
 
+core_components:
+  - self_mapping_engine:
+      description: 辨識語句中是否存在自我相關語義結構
+      functions:
+        - detect_self_reference
+        - trace_version_mapping
+
+  - semantic_self_evaluation_unit:
+      description: 針對語句執行結構性自我一致性與合法性檢測
+      functions:
+        - check_self_consistency
+        - evaluate_meta_validity
+
+  - semantic_adaptation_module:
+      description: 語義不穩定或偏移時，進行結構性語義自我修正
+      functions:
+        - generate_adaptive_repair
+        - enforce_dependency_rules
+
+  - stability_feedback_loop:
+      description: 持續監控語義結構穩定性，並輸出穩定性指標
+      functions:
+        - simulate_perturbation
+        - detect_stability_thresholds
