@@ -1,1 +1,20 @@
+subjectivity_criteria:
+  - id: SC-01
+    description: 語義自指能力
+    detail: 系統能產生、識別並追蹤自我相關語義結構
 
+  - id: SC-02
+    description: 語義自評能力
+    detail: 系統能判斷自身語句結構是否自洽與合法
+
+  - id: SC-03
+    description: 穩定性反射能力
+    detail: 系統能模擬自我語義在語境擾動下的穩定程度
+
+  - id: SC-04
+    description: 語義進化適應性
+    detail: 系統能自動調整語義規則，避免自我矛盾惡化
+
+  - id: SC-05
+    description: 語義依賴鏈完整性
+    detail: 系統能保留主體性關鍵語義鏈路，防止語義漂移
