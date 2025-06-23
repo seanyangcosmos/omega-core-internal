@@ -1,1 +1,37 @@
+module: M19
+title: System-Generated Semantic Rules
+version: 1.0
 
+generated_rules:
+  - id: SRG-001
+    type: contradiction
+    description: "自動偵測語義結構中的全稱與特例矛盾"
+    pattern:
+      A: "所有 X 皆 Y"
+      B: "存在 X 不 Y"
+    severity: high
+
+  - id: SRG-002
+    type: paradox-allowance
+    description: "基於模擬結構發現容悖語句，允許特定語境下出現自指悖論"
+    pattern:
+      sentence: "S ↔ ¬S"
+    condition: "allow_paradox == true"
+    severity: medium
+
+  - id: SRG-003
+    type: dependency-enforcement
+    description: "版本遷移過程中自動生成的語義依賴約束"
+    pattern:
+      base_meaning: "SC7"
+      derived_meaning: "SC7.1 必須語義延續 SC7"
+    severity: high
+
+  - id: SRG-004
+    type: semantic-bridge
+    description: "語義躍遷時自動生成的語義過渡橋接規則"
+    pattern:
+      source: "語句 A"
+      target: "語句 B"
+      bridge: "語句 X 作為 A 與 B 間的語義過渡"
+    severity: medium
