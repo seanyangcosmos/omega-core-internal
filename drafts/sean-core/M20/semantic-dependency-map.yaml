@@ -1,1 +1,40 @@
+semantic_dependency_map:
+  nodes:
+    - id: SC7
+      type: definition
+      content: "SC7 定義了本系統的語義穩定條件。"
+      version: 1.0
+      dependencies: []
 
+    - id: SC7.1
+      type: derived_statement
+      content: "SC7 僅為理論參考，實際不具約束力。"
+      version: 1.1
+      dependencies:
+        - SC7
+
+    - id: SC7.2
+      type: derived_statement
+      content: "SC7 結構已部分失效，需重新檢視。"
+      version: 1.2
+      dependencies:
+        - SC7
+
+    - id: STB-1
+      type: stability_claim
+      content: "本系統語義結構維持穩定。"
+      version: 1.0
+      dependencies:
+        - SC7
+
+    - id: STB-2
+      type: stability_warning
+      content: "語義穩定性可能因 SC7 偏移而下降。"
+      version: 1.1
+      dependencies:
+        - SC7.2
+
+  drift_warnings:
+    - source: SC7.2
+      affected: STB-2
+      description: "SC7 結構偏移影響語義穩定性聲明，需審慎評估。"
