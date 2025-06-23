@@ -1,1 +1,25 @@
-
+{
+  "summary": {
+    "total_events": 5,
+    "rules_generated": 4,
+    "critical_mutations_detected": 2
+  },
+  "generated_rules": [
+    {
+      "rule_type": "dependency_adjustment",
+      "description": "偵測到結構變異：SC7.2 結構偏移，已生成依賴調整規則"
+    },
+    {
+      "rule_type": "dependency_adjustment",
+      "description": "偵測到結構變異：新增單位 NEW-X 缺乏清晰依賴，已生成依賴補強規則"
+    },
+    {
+      "rule_type": "version_consistency_check",
+      "description": "版本擴展：SC7.3 衍生版本形成，已生成版本一致性檢核規則"
+    },
+    {
+      "rule_type": "version_consistency_check",
+      "description": "版本擴展：STB-2.1 穩定性聲明更新，已生成版本一致性檢核規則"
+    }
+  ]
+}
