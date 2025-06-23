@@ -1,1 +1,38 @@
+module: M18
+title: Semantic Rule Validator - Internal Process Configuration
+version: 1.0
 
+inputs:
+  - name: sentence
+    type: string
+    required: true
+  - name: context
+    type: string
+    required: false
+  - name: allow_paradox
+    type: boolean
+    default: false
+
+process:
+  - step: Load rule checklist
+    source: rule-checklist.yaml
+
+  - step: Pattern match
+    action: Compare input sentence against all defined rules
+    condition: Apply context if provided
+
+  - step: Violation check
+    action: If pattern matches a violation, mark as invalid
+
+  - step: Log violation
+    condition: If invalid
+    action: Append details to violation-catalog.json
+
+  - step: Suggest repair
+    condition: If invalid
+    action: Retrieve corresponding repair suggestion from repair-suggestion.md
+
+outputs:
+  - status: valid | invalid
+  - violation_details: optional object
+  - suggested_repair: optional string
