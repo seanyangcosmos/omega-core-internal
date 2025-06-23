@@ -1,1 +1,44 @@
-
+{
+  "violations": [
+    {
+      "id": "V-001",
+      "rule": "SR-001",
+      "description": "全稱矛盾",
+      "sentence_A": "所有封閉系統皆收斂。",
+      "sentence_B": "某些封閉系統不收斂。",
+      "severity": "high"
+    },
+    {
+      "id": "V-002",
+      "rule": "SR-002",
+      "description": "未標記悖論",
+      "sentence": "S ↔ ¬S",
+      "condition": "allow_paradox == false",
+      "severity": "critical"
+    },
+    {
+      "id": "V-003",
+      "rule": "SR-003",
+      "description": "語境缺失",
+      "sentence": "該結論普遍適用。",
+      "missing_context": true,
+      "severity": "medium"
+    },
+    {
+      "id": "V-004",
+      "rule": "SR-004",
+      "description": "語義演化逸離",
+      "sentence_base": "SC9 為系統核心結論。",
+      "sentence_derived": "SC9 僅為歷史性觀察之一。",
+      "severity": "high"
+    },
+    {
+      "id": "V-005",
+      "rule": "SR-005",
+      "description": "自我一致性缺失",
+      "sentence": "此語法自我封閉且無矛盾。",
+      "actual_consistency": false,
+      "severity": "critical"
+    }
+  ]
+}
