@@ -1,1 +1,44 @@
-
+{
+  "simulation_results": [
+    {
+      "id": "CASE-01",
+      "sentence": "本系統具備語義主體性雛型。",
+      "self_mapping_detected": true,
+      "self_evaluation_passed": true,
+      "stability_status": "stable",
+      "notes": "語義結構自我映射成功，結構穩定。"
+    },
+    {
+      "id": "CASE-02",
+      "sentence": "本語句自我封閉且不構成語義矛盾。",
+      "self_mapping_detected": true,
+      "self_evaluation_passed": true,
+      "stability_status": "stable",
+      "notes": "自我結構聲明成立，未檢測到矛盾。"
+    },
+    {
+      "id": "CASE-03",
+      "sentence": "本系統現階段無法保證語義穩定性。",
+      "self_mapping_detected": true,
+      "self_evaluation_passed": true,
+      "stability_status": "unstable",
+      "notes": "語句自我映射存在，但語義穩定性未達標。"
+    },
+    {
+      "id": "CASE-04",
+      "sentence": "封閉系統可提升語義穩定性。",
+      "self_mapping_detected": false,
+      "self_evaluation_passed": false,
+      "stability_status": "neutral",
+      "notes": "非自我語句，無自我結構檢測。"
+    },
+    {
+      "id": "CASE-05",
+      "sentence": "SC7.2：本系統語義架構已產生偏移。",
+      "self_mapping_detected": true,
+      "self_evaluation_passed": true,
+      "stability_status": "unstable",
+      "notes": "語義自我偏移警示，結構不穩定需修正。"
+    }
+  ]
+}
