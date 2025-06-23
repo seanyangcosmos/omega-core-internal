@@ -1,1 +1,6 @@
-
+integration_with_subjectivity:
+  description: 語義主體性與語義鏈結構同步演化監控
+  functions:
+    - link_subjectivity_nodes_to_dependency_map
+    - track_subjectivity_evolution_within_dependency_graph
+    - detect_conflict_between_subjectivity_and_dependency_changes
