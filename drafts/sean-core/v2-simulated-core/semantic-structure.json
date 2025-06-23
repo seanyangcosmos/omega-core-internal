@@ -1,1 +1,11 @@
 
+{
+  "units": [
+    {"id": "U1", "type": "semantic"},
+    {"id": "U2", "type": "semantic"},
+    {"id": "S1", "type": "subjectivity"}
+  ],
+  "dependencies": [
+    {"source": "U1", "target": "U2"}
+  ]
+}
