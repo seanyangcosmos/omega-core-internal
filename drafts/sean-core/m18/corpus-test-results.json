@@ -1,1 +1,35 @@
-
+{
+  "summary": {
+    "total_sentences": 5,
+    "rules_passed": 3,
+    "rules_failed": 2,
+    "overall_status": "partially stable"
+  },
+  "details": [
+    {
+      "id": "C001",
+      "rules_passed": true,
+      "notes": "結構穩定，規則驗證通過"
+    },
+    {
+      "id": "C002",
+      "rules_passed": false,
+      "notes": "結構偏移，違反穩定性規則"
+    },
+    {
+      "id": "C003",
+      "rules_passed": true,
+      "notes": "自我封閉語義合法"
+    },
+    {
+      "id": "C004",
+      "rules_passed": false,
+      "notes": "缺乏依賴鏈結，結構驗證不通過"
+    },
+    {
+      "id": "C005",
+      "rules_passed": true,
+      "notes": "孤立語義無違規，視為邊界案例"
+    }
+  ]
+}
