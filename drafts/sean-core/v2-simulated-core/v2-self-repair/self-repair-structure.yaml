@@ -1,1 +1,6 @@
 
+repair_rules:
+  - id: SR-001
+    description: 偵測到孤立單位時，應補充鏈結或移除
+  - id: SR-002
+    description: 偵測到依賴鏈斷裂時，應自動生成補強建議
