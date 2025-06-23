@@ -1,1 +1,30 @@
+module: M19
+title: Semantic Rule Generator - Generation Logic
+version: 1.0
 
+generation_triggers:
+  - source: syntax_structure
+    description: 語法結構包含明顯邏輯關係（如 全稱、否定、自指）時，觸發規則生成。
+
+  - source: semantic_expansion
+    description: 語義擴展過程中新語句與既有語句產生潛在衝突或語意躍遷，觸發生成。
+
+  - source: version_migration
+    description: 語句版本變更導致語義主體偏移時，自動生成補強性規則。
+
+  - source: simulated_paradox
+    description: 模擬器偵測到結構性悖論時，生成容悖語義標記規則。
+
+rule_templates:
+  - id_pattern: "SRG-${index}"
+  - structure: 
+      type: string (如 "contradiction", "paradox-allowance", "dependency-enforcement")
+      description: 自動生成的語義規則類型說明
+      pattern: 語義或語法層級的模式表述
+      condition: 可選，限定規則適用條件
+      severity: ["low", "medium", "high", "critical"]
+
+constraints:
+  - "不得自動生成語義無法被驗證之規則"
+  - "生成規則必須經 M18 規則驗證器檢測通過"
+  - "不得覆蓋人工指定的核心語義規則"
