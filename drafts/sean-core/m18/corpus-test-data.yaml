@@ -1,1 +1,15 @@
+corpus_sentences:
+  - id: C001
+    sentence: "本系統語義結構穩定，SC7 為關鍵依據。"
 
+  - id: C002
+    sentence: "SC7.2：本系統語義鏈已產生偏移。"
+
+  - id: C003
+    sentence: "本語句自我封閉且不構成語義矛盾。"
+
+  - id: C004
+    sentence: "NEW-X 語義單位缺少明確依賴，結構存疑。"
+
+  - id: C005
+    sentence: "STB-3 孤立語義聲明，未鏈入結構。"
