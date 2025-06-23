@@ -21,9 +21,8 @@ rules = [
 ]
 
 # 載入語料
-with open('corpus-test-data.yaml', 'r', encoding='utf-8') as f:
+with open('../m18-corpus-data/corpus-test-data.yaml', 'r', encoding='utf-8') as f:
     corpus_data = yaml.safe_load(f)
-
 results = []
 passed = 0
 failed = 0
