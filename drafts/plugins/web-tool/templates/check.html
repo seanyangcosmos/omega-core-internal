@@ -1,0 +1,16 @@
+<h1>語義檢測結果</h1>
+<p>{{ text }}</p>
+
+{% if result %}
+    <h3>發現問題：</h3>
+    <ul>
+    {% for item in result %}
+        <li>{{ item }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p style="color:green;">✅ 語義檢測通過，未發現問題</p>
+{% endif %}
+
+<a href="/">返回首頁</a>
+

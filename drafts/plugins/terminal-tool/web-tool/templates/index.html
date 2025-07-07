@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sean Yang Core 語義分析系統</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin: 15px 0;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .analyze-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .clear-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: left;
+            word-break: break-word;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sean Yang Core 語義分析系統</h1>
+        <p>請輸入欲分析的語句，系統將自動檢測語義結構。</p>
+        
+        <textarea id="textInput" placeholder="請輸入欲分析內容..."></textarea>
+        
+        <div>
+            <button class="analyze-btn" onclick="analyze()">分析語義</button>
+            <button class="clear-btn" onclick="clearText()">清除</button>
+        </div>
+        
+        <div id="result" class="result">【系統提醒】尚未進行分析。</div>
+    </div>
+
+    <script>
+        function analyze() {
+            const text = document.getElementById('textInput').value;
+            fetch('/feedback', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ content: text })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const result = document.getElementById('result');
+                if (data.error) {
+                    result.textContent = "【系統錯誤】" + data.error;
+                } else {
+                    result.innerHTML = `<strong>分析結果：</strong><br>${data.result}`;
+                }
+            })
+            .catch(error => {
+                document.getElementById('result').textContent = "【系統錯誤】無法連線伺服器。";
+            });
+        }
+
+        function clearText() {
+            document.getElementById('textInput').value = "";
+            document.getElementById('result').textContent = "【系統提醒】尚未進行分析。";
+        }
+    </script>
+</body>
+</html>
