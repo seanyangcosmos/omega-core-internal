@@ -1,0 +1,162 @@
+version: V1.0
+module_index:
+  - id: M1
+    name: Recursive Evolution
+    filename: core-recursive-evolution-v1.md
+    path: sean-core-v1/
+    type: logic
+    summary: Defines the recursive evolution mechanism of Sean Yang Core.
+
+  - id: M2
+    name: Self-Reference Framework
+    filename: core-self-reference-v1.md
+    path: sean-core-v1/
+    type: logic
+    summary: Establishes foundational rules for self-reference logic.
+
+  - id: M3
+    name: Closed Logic Structure
+    filename: core-closed-logic-v1.md
+    path: sean-core-v1/
+    type: logic
+    summary: Encodes bounded logical relations as a closed system.
+
+  - id: M4
+    name: Open Syntax Engine
+    filename: core-open-syntax-v1.md
+    path: sean-core-v1/
+    type: syntax
+    summary: Enables generation and recognition of open-ended syntax patterns.
+
+  - id: M5
+    name: Unified Structural Overview
+    filename: core-structure-overview-v1.md
+    path: sean-core-v1/
+    type: integration
+    summary: Provides a master overview of all module structures.
+
+  - id: M6
+    name: Philosophical Modeling Engine
+    filename: core-philosophy-model-v1.md
+    path: sean-core-v1/
+    type: philosophy
+    summary: Bridges logical formalisms with philosophical interpretation.
+
+  - id: M7
+    name: Structural Duality Engine
+    filename: core-duality-structure-v1.md
+    path: sean-core-v1/
+    type: structure
+    summary: Models interplay between closed and open subsystems.
+
+  - id: M8
+    name: Semantic Chain Simulator
+    filename: core-semantic-chain-v1.md
+    path: sean-core-v1/
+    type: simulation
+    summary: Simulates semantic progression via modular transformations.
+
+  - id: M9
+    name: Pragmatic Assertion Guard
+    filename: core-pragmatic-assertion-guard-v1.md
+    path: sean-core-v1/
+    type: guard
+    summary: Validates contextual legitimacy of semantic assertions.
+
+  - id: M10
+    name: Module Integrity Checker
+    filename: core-integrity-check-v1.md
+    path: sean-core-v1/
+    type: audit
+    summary: Ensures consistency and correctness of module linkages.
+
+  - id: M11
+    name: Semantic Rule Generator
+    filename: core-semantic-rule-gen-v1.md
+    path: sean-core-v1/
+    type: generation
+    summary: Automatically produces rule sets based on logical syntax.
+
+  - id: M12
+    name: Semantic Validator
+    filename: core-semantic-validator-v1.md
+    path: sean-core-v1/
+    type: validation
+    summary: Validates generated statements against core rules.
+
+  - id: M13
+    name: Semantic Simulator
+    filename: core-semantic-simulator-v1.md
+    path: sean-core-v1/
+    type: simulation
+    summary: Performs logical-semantic testing on candidate expressions.
+
+  - id: M14
+    name: Semantic Feedback Learner
+    filename: core-feedback-learner-v1.md
+    path: sean-core-v1/
+    type: learning
+    summary: Adjusts semantic rule weighting based on feedback patterns.
+
+  - id: M15
+    name: Semantic Evolution Graph
+    filename: core-semantic-evolution-graph-v1.md
+    path: sean-core-v1/
+    type: graph
+    summary: Tracks the growth and divergence of semantic networks.
+
+  - id: M16
+    name: Semantic Potential Expansion
+    filename: core-semantic-potential-expansion-v1.md
+    path: sean-core-v1/
+    type: expansion
+    summary: Identifies latent patterns for future rule development.
+
+  - id: M17
+    name: Semantic Coherence Guard
+    filename: core-semantic-coherence-guard-v1.md
+    path: sean-core-v1/
+    type: coherence
+    summary: Monitors semantic harmony across evolving modules.
+
+  - id: M18
+    name: Semantic Rule Validator
+    filename: core-semantic-rule-validator-v1.md
+    path: sean-core-v1/
+    type: validation
+    summary: Performs cross-check validation between rules and output.
+
+  - id: M19
+    name: Semantic Rule Generator II
+    filename: core-semantic-rule-generator2-v1.md
+    path: sean-core-v1/
+    type: generation
+    summary: Refines rule generation based on structural input frames.
+
+  - id: M20
+    name: Semantic Dependency Mapping
+    filename: core-semantic-dependency-map-v1.md
+    path: sean-core-v1/
+    type: mapping
+    summary: Generates semantic dependency chains and version logs.
+
+  - id: M21
+    name: Semantic Dependency Integrity Enforcement
+    filename: core-semantic-dependency-integrity-v1.md
+    path: sean-core-v1/
+    type: integrity
+    summary: Validates and repairs cross-module dependency integrity.
+
+  - id: M22
+    name: Core System Export (Reserved)
+    filename: core-system-export-v1.md
+    path: sean-core-v1/
+    type: reserved
+    summary: Placeholder for system export functions.
+
+  - id: M23
+    name: Open-Closed Structure Dual-Track Monitoring
+    filename: core-open-closed-monitor-v1.md
+    path: sean-core-v1/
+    type: monitor
+    summary: Supervises semantic consistency between open and closed structures.
