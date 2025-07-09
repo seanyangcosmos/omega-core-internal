@@ -2,123 +2,68 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sean Yang Core Modules</title>
-<style>
-  body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    padding: 2em;
-    max-width: 800px;
-    margin: auto;
-    background: #f9f9f9;
-  }
-  h1 {
-    color: #333;
-  }
-  h2 a {
-    color: #0066cc;
-    cursor: pointer;
-    margin-top: 1.5em;
-    transition: color 0.2s;
-  }
-  h2 a:hover {
-    text-decoration: underline;
-  }
-  .module-content {
-    display: none;
-    margin-left: 1em;
-    background: #fff;
-    padding: 1em;
-    border-left: 3px solid #999;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-  }
-  .active {
-    display: block;
-  }
-  .top-button {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    padding: 0.6em 1.2em;
-    background-color: #444;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-</style>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+      background: #f9f9f9;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    h2 {
+      margin-top: 1.5em;
+    }
+
+    h2 a {
+      color: #0066cc;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    h2 a:hover {
+      text-decoration: underline;
+    }
+
+    .module-content {
+      display: none;
+    }
+
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Sean Yang Core Modules</h1>
-  <p>本頁展示 Sean Yang Core V1 系列模組內容，點擊模組標題以展開／收合詳細內容。</p>
+  <h1>Sean Yang Core 系統首頁</h1>
+  <p>這是 Sean Yang Core 的官方展示頁面，整合哲學、語法、邏輯與語義模組的系統架構。</p>
+  <p>目前展示版本為：<strong>V1–2 模組總覽</strong>。</p>
 
-  <!-- Modules -->
-  <div>
-    <h2 onclick="toggleModule('m1')">M1 模組：語法結構生成模組</h2>
-    <div class="module-content" id="m1">
-      <p>此模組負責建立語義語法的初階結構生成機制...</p>
-    </div>
+  <h2>模組目錄（M1–M10）</h2>
+  <ul>
+    <li><a href="m1-logic-core.html">M1：系統概要與邏輯核心</a></li>
+    <li><a href="m2-evolution.html">M2：邏輯進化模組</a></li>
+    <li><a href="m3-closure.html">M3：封閉邏輯模組</a></li>
+    <li><a href="m4-grammar.html">M4：語法本體模組</a></li>
+    <li><a href="m5-generator.html">M5：生成引擎模組</a></li>
+    <li><a href="m6-method.html">M6：哲學方法模組</a></li>
+    <li><a href="m7-semantics.html">M7：語義本體模組</a></li>
+    <li><a href="m8-root.html">M8：語構語義與元素語根模組</a></li>
+    <li><a href="m9-pragmatic-guard.html">M9：語句合法性防衛模組</a></li>
+    <li><a href="m10-integrity-check.html">M10：語句一致性檢查模組（預留）</a></li>
+  </ul>
 
-    <h2 onclick="toggleModule('m2')">M2 模組：遞歸進化模組</h2>
-    <div class="module-content" id="m2">
-      <p>模組內含語法重組與語意遞進邏輯，促進結構擴展...</p>
-    </div>
+  <h2>📘 哲學核心與願景</h2>
+  <p>此系統旨在建構哲學性 AI 結構，發展可自我驗證與演化的邏輯語義模型，並實現語言、邏輯、語法、結構的一體化框架。</p>
 
-    <h2 onclick="toggleModule('m3')">M3 模組：封閉邏輯模組</h2>
-    <div class="module-content" id="m3">
-      <p>定義封閉系統邏輯條件，建立邏輯一致性之檢查機制...</p>
-    </div>
-
-    <h2 onclick="toggleModule('m4')">M4 模組：開放語法模組</h2>
-    <div class="module-content" id="m4">
-      <p>針對非收斂結構設計可生成型語法模型與開放容悖語句...</p>
-    </div>
-
-    <h2 onclick="toggleModule('m5')">M5 模組：語法宇宙模組</h2>
-    <div class="module-content" id="m5">
-      <p>模擬全語義宇宙空間，整合動態結構圖與生成流程...</p>
-    </div>
-
-    <h2 onclick="toggleModule('m6')">M6 模組：哲學方法論模組</h2>
-    <div class="module-content" id="m6">
-      <p>定義哲學性邏輯詮釋方法，作為數學語義基礎補充...</p>
-    </div>
-
-    <h2 onclick="toggleModule('m7')">M7 模組：語用語意橋接模組</h2>
-    <div class="module-content" id="m7">
-      <p>建立語法結構與語用邏輯之橋接與轉譯模型...</p>
-    </div>
-
-    <h2 onclick="toggleModule('m8')">M8 模組：封環驗證模組</h2>
-    <div class="module-content" id="m8">
-      <p>驗證封閉語法是否具備自洽與閉環結構...</p>
-    </div>
-
-    <h2 onclick="toggleModule('m9')">M9 模組：語用合法性模組</h2>
-    <div class="module-content" id="m9">
-      <p>檢查語句是否合法運用於對話、命題與邏輯場景...</p>
-    </div>
-
-    <h2 onclick="toggleModule('m10')">M10 模組：模組一致性與語法鏈圖譜模組</h2>
-    <div class="module-content" id="m10">
-      <p>稽核模組間的語義一致性，產生邏輯鏈圖譜與依賴分析...</p>
-    </div>
-  </div>
-
-  <!-- 返回頂部 -->
-  <button onclick="scrollToTop()" class="top-button">返回頂部</button>
-
-  <script>
-    function toggleModule(id) {
-      const el = document.getElementById(id);
-      el.classList.toggle('active');
-    }
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
 </body>
 </html>
