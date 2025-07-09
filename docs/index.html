@@ -3,89 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sean Yang Core 系統首頁</title>
+  <title>Sean Yang Core Modules</title>
   <style>
     body {
-      font-family: "Noto Sans TC", sans-serif;
-      margin: 3em;
-      background-color: #fefefe;
-      color: #222;
-      line-height: 1.8;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+      background: #f9f9f9;
     }
-    h1, h2 {
-      color: #111;
+    h1 {
+      color: #333;
     }
-    a {
-      color: #0033cc;
-      text-decoration: none;
+    h2 {
+      color: #444;
+      cursor: pointer;
+      margin-top: 1.5em;
     }
-    a:hover {
-      text-decoration: underline;
-    }
-    .module-list {
+    .module-content {
+      display: none;
       margin-left: 1em;
+      background: #fff;
+      padding: 1em;
+      border-left: 3px solid #999;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     }
-    .module-list li {
-      margin: 0.5em 0;
+    .active {
+      display: block;
     }
-    hr {
-      margin: 3em 0;
+    .top-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      padding: 0.6em 1.2em;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <h1>Sean Yang Core 系統首頁</h1>
 
-  <p>這是 <strong>Sean Yang Core</strong> 的官方展示頁面，整合哲學、語法、邏輯與語義模組的系統架構。</p>
-  <p><strong>目前展示版本為：V1–2 模組總覽。</strong></p>
+  <h1>Sean Yang Core Modules</h1>
+  <p>本頁展示 Sean Yang Core V1 系列模組內容，點擊模組標題以展開／收合詳細內容。</p>
 
-  <h2>📘 模組目錄（M1–M10）</h2>
-  <ul class="module-list">
-    <li><a href="#m1">M1：系統概要與邏輯核心</a></li>
-    <li><a href="#m2">M2：遞歸進化模組</a></li>
-    <li><a href="#m3">M3：封閉邏輯模組</a></li>
-    <li><a href="#m4">M4：開放語法模組</a></li>
-    <li><a href="#m5">M5：生成引擎模組</a></li>
-    <li><a href="#m6">M6：哲學方法模組</a></li>
-    <li><a href="#m7">M7：語法本體模組</a></li>
-    <li><a href="#m8">M8：語構語義與元素語根模組</a></li>
-    <li><a href="#m9">M9：語句合法性防衛模組</a></li>
-    <li><a href="#m10">M10：語句一致性檢查模組（預留）</a></li>
-  </ul>
+  <!-- Modules -->
+  <div>
+    <h2 onclick="toggleModule('m1')">M1 模組：語法結構生成模組</h2>
+    <div class="module-content" id="m1">
+      <p>此模組負責建立語義語法的初階結構生成機制...</p>
+    </div>
 
-  <hr>
+    <h2 onclick="toggleModule('m2')">M2 模組：遞歸進化模組</h2>
+    <div class="module-content" id="m2">
+      <p>模組內含語法重組與語意遞進邏輯，促進結構擴展...</p>
+    </div>
 
-  <h2 id="m1">M1：系統概要與邏輯核心</h2>
-  <p>本模組作為 Sean Yang Core 的邏輯起點，定義整體系統的語義邏輯基底與封閉條件。其目標為建立自足而可遞歸展開的邏輯系統，允許從任意初始語句出發，推導合法語法與哲學結構，形成動態封閉。</p>
+    <h2 onclick="toggleModule('m3')">M3 模組：封閉邏輯模組</h2>
+    <div class="module-content" id="m3">
+      <p>定義封閉系統邏輯條件，建立邏輯一致性之檢查機制...</p>
+    </div>
 
-  <h2 id="m2">M2：遞歸進化模組</h2>
-  <p>M2 強調系統的自我進化能力，透過語義疊代與結構學習產生新語句，並定義語義演化的階段性模型，例如 V1→V2 的模組躍遷，提供合法性保證機制與演進節點的追溯邏輯。</p>
+    <h2 onclick="toggleModule('m4')">M4 模組：開放語法模組</h2>
+    <div class="module-content" id="m4">
+      <p>針對非收斂結構設計可生成型語法模型與開放容悖語句...</p>
+    </div>
 
-  <h2 id="m3">M3：封閉邏輯模組</h2>
-  <p>M3 模組建立整體封閉性的邏輯邊界，定義什麼樣的語法結構可在封閉系統中被接受，亦說明封閉系統如何防止語義崩壞或語句過度展開，進而保護核心運算結構。</p>
+    <h2 onclick="toggleModule('m5')">M5 模組：語法宇宙模組</h2>
+    <div class="module-content" id="m5">
+      <p>模擬全語義宇宙空間，整合動態結構圖與生成流程...</p>
+    </div>
 
-  <h2 id="m4">M4：開放語法模組</h2>
-  <p>M4 為本系統之開放性對應模組，提供自由語法生成的規則，允許在語法合法性的前提下展開任意語句生成行為，並界定其在結構樹與模組連結上的可容忍範圍。</p>
+    <h2 onclick="toggleModule('m6')">M6 模組：哲學方法論模組</h2>
+    <div class="module-content" id="m6">
+      <p>定義哲學性邏輯詮釋方法，作為數學語義基礎補充...</p>
+    </div>
 
-  <h2 id="m5">M5：生成引擎模組</h2>
-  <p>M5 負責語句生成的實際執行層，包括生成演算法、語法樹建構規則與自我擴展引擎之原型邏輯。此模組與 M2 遞歸模組相互作用，形成動態學習與應答能力。</p>
+    <h2 onclick="toggleModule('m7')">M7 模組：語用語意橋接模組</h2>
+    <div class="module-content" id="m7">
+      <p>建立語法結構與語用邏輯之橋接與轉譯模型...</p>
+    </div>
 
-  <h2 id="m6">M6：哲學方法模組</h2>
-  <p>本模組定義整體系統的哲學方法學，整合分析哲學、語用學與本體論，並在語法生成過程中提供「合法性詮釋框架」，成為整體語句自我審查與外部可理解性的依據。</p>
+    <h2 onclick="toggleModule('m8')">M8 模組：封環驗證模組</h2>
+    <div class="module-content" id="m8">
+      <p>驗證封閉語法是否具備自洽與閉環結構...</p>
+    </div>
 
-  <h2 id="m7">M7：語法本體模組</h2>
-  <p>M7 為所有語法的本體層級描述框架，定義語句中的結構詞類、句型組合與語義指涉。其任務為提供語法與語義之間的穩定橋接，並與哲學模組共構語用結構。</p>
+    <h2 onclick="toggleModule('m9')">M9 模組：語用合法性模組</h2>
+    <div class="module-content" id="m9">
+      <p>檢查語句是否合法運用於對話、命題與邏輯場景...</p>
+    </div>
 
-  <h2 id="m8">M8：語構語義與元素語根模組</h2>
-  <p>本模組細化語句內部的語義單位（語根、結構詞、語構節點等），構成語句的微結構圖譜，使語義分析能達到細節層的追蹤與編碼能力，並成為生成器的詞彙資源核心。</p>
+    <h2 onclick="toggleModule('m10')">M10 模組：模組一致性與語法鏈圖譜模組</h2>
+    <div class="module-content" id="m10">
+      <p>稽核模組間的語義一致性，產生邏輯鏈圖譜與依賴分析...</p>
+    </div>
+  </div>
 
-  <h2 id="m9">M9：語句合法性防衛模組</h2>
-  <p>本模組提供語義邏輯的防衛機制，用於檢測語句是否符合系統封閉性與一致性規則，防止語義扭曲、邏輯矛盾與模組間不一致，保護整體語義宇宙的穩定運行。</p>
+  <!-- 返回頂部 -->
+  <button onclick="scrollToTop()" class="top-button">返回頂部</button>
 
-  <h2 id="m10">M10：語句一致性檢查模組（預留）</h2>
-  <p>M10 將進一步整合所有模組之語義與語法輸出，進行跨模組一致性比對，最終形成整體系統的一致性保證層。此模組目前預留待構建。</p>
-
-  <hr>
-  <p>© 2025 Sean Yang Core | All rights reserved.</p>
+  <script>
+    function toggleModule(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('active');
+    }
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
