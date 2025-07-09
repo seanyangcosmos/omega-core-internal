@@ -1,48 +1,37 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  max-width: 960px;
-  margin: 40px auto;
-  padding: 0 20px;
-  background-color: #ffffff;
+  padding: 20px;
+  background-color: #f9f9f9;
   color: #222;
 }
 
-h1, h2, h3 {
+h1 {
   color: #2c3e50;
+  font-size: 28px;
+}
+
+h2 {
+  color: #34495e;
+  margin-top: 30px;
+  font-size: 22px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 10px 0;
 }
 
 a {
-  color: #0066cc;
   text-decoration: none;
+  color: #0066cc;
 }
 
 a:hover {
   text-decoration: underline;
+  color: #004080;
 }
-
-hr {
-  margin: 40px 0;
-}
-
-nav {
-  margin-bottom: 40px;
-}
-
-nav a {
-  margin-right: 20px;
-  font-weight: bold;
-  color: #0066cc;
-}
-
-nav a:hover {
-  color: #003399;
-}
-
-.module-link {
-  display: block;
-  margin-bottom: 12px;
-  font-size: 1.1em;
-}
-
-
