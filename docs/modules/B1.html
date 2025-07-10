@@ -4,48 +4,59 @@
   <meta charset="UTF-8" />
   <title>B1｜商業語義包裝模組</title>
   <style>
-    body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; margin: 40px; line-height: 1.7; background: #fdfdfd; color: #222; }
-    h1 { color: #333; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      color: #333;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+    h1 { color: #444; }
     h2 { margin-top: 30px; color: #444; }
-    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
-    .top-link { position: fixed; bottom: 30px; right: 30px; background: #007acc; color: #fff; padding: 10px 14px; border-radius: 5px; text-decoration: none; font-size: 14px; }
-    .top-link:hover { background: #005fa3; }
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    .top-link {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #007acc;
+      color: #fff;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .top-link:hover {
+      background: #005fa3;
+    }
   </style>
 </head>
 <body>
 
-<h1 id="top">B1｜商業語義包裝模組</h1>
+  <!-- 引入共用頁首 -->
+  <div id="header"></div>
+  <script>
+    fetch("/omega-core-internal/modules/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+  </script>
 
-<h2>🧭 模組摘要</h2>
-<p>本模組負責將 <strong>Sean Yang Core 的基礎語義模組</strong> 轉譯為具備 <strong>商業說服力與溝通效率</strong> 的語言結構，協助技術內容跨越學術語境進入投資與應用市場語境。</p>
+  <h1 id="top">B1｜商業語義包裝模組</h1>
 
-<h2>🔧 功能說明</h2>
-<ul>
-  <li>自動轉譯學術語義為簡明商業描述</li>
-  <li>建立模組對外 Pitch 用語義介面</li>
-  <li>支援未來 Plugin 語義包裝對接</li>
-</ul>
+  <h2>🧭 模組摘要</h2>
+  <p>本模組負責將 <strong>Sean Yang Core</strong> 的基礎語義模組，自動轉譯為商業簡報中可用的 Pitch 描述語。</p>
 
-<h2>📈 應用場景模擬</h2>
-<p>假設使用者為 AI 工具初創團隊，欲向潛在投資者展示其系統設計，透過本模組可將 M1–M10 的語義模組轉換為「模組化解決方案架構」，並以視覺圖譜與簡明語言向投資人說明技術壁壘與市場差異性。</p>
+  <h2>📦 功能說明</h2>
+  <ul>
+    <li>自動轉譯學術術語義為簡明商業描述</li>
+    <li>建立模組對外 Pitch 用語義介面</li>
+  </ul>
 
-<h2>🔗 對應原始模組</h2>
-<ul>
-  <li>M1：語義系統總覽模組</li>
-  <li>M2：遞歸進化模組</li>
-  <li>M3：封閉系統邏輯模組</li>
-  <li>M4：開放語法模組</li>
-  <li>M5：生成宇宙模組</li>
-  <li>M6：哲學方法論模組</li>
-  <li>M7：語法圖譜模組</li>
-  <li>M8：語義封裝與生成模組</li>
-  <li>M9：語用合法性判斷模組</li>
-  <li>M10：語法鏈圖譜與稽核模組</li>
-</ul>
-
-<a class="top-link" href="#top">↑ 返回頁首</a>
+  <a href="/omega-core-internal/index.html" class="top-link">返回首頁</a>
 
 </body>
 </html>
-
 

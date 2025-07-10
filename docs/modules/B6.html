@@ -1,36 +1,75 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <title>B6｜語義互動紀錄監控模組</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <title>B6｜模組依賴圖與視覺關聯模組</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 { color: #444; }
+    h2 { margin-top: 30px; color: #444; }
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    .top-link {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #007acc;
+      color: #fff;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .top-link:hover {
+      background: #005fa3;
+    }
+    .diagram {
+      border: 1px solid #ccc;
+      padding: 20px;
+      background: #f9f9f9;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>B6｜語義互動紀錄監控模組</h1>
-    <p><strong>模組類型：</strong>V1-B｜商業模組</p>
-    <p><strong>模組代碼：</strong>B6</p>
-    <hr>
 
-    <h2>模組簡述</h2>
-    <p>
-      本模組負責長期監控所有與語義模組互動的紀錄，並加以整理與分析。可供日後用於使用者行為分析、語義優化建議、錯誤追蹤與使用效率評估，是商業應用中不可或缺的語義數據後台。
-    </p>
+  <!-- 引入共用頁首 -->
+  <div id="header"></div>
+  <script>
+    fetch("/omega-core-internal/modules/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+  </script>
 
-    <h2>模組功能</h2>
-    <ul>
-      <li>記錄所有語義互動的輸入、回應與錯誤狀況。</li>
-      <li>自動標記潛在錯誤與語義偏差片段。</li>
-      <li>支援模組級／用戶級／時間段統計圖表生成。</li>
-      <li>可匯出 CSV、JSON 等格式供進階分析。</li>
-    </ul>
+  <h1 id="top">B6｜模組依賴圖與視覺關聯模組</h1>
 
-    <h2>應用範圍</h2>
-    <p>適用於 AI 應用監控系統、教育訓練平台、客製化對話管理後台等。</p>
+  <h2>📘 模組簡述</h2>
+  <p>本模組用於視覺化顯示 B 系列模組與核心 M 系列模組間的依賴與邏輯關聯，便於系統維運與邏輯完整性分析。</p>
 
-    <hr>
-    <p class="back-to-top"><a href="#top">返回頁首</a></p>
+  <h2>🔧 模組功能</h2>
+  <ul>
+    <li>將模組關係轉換為節點圖（Node Graph）。</li>
+    <li>支援多層模組結構顯示（如 B → M → V 層級）。</li>
+    <li>提供模組版本追蹤與變動比較功能。</li>
+    <li>可導出為 SVG、PNG 或 JSON 結構。</li>
+  </ul>
+
+  <h2>🗺️ 視覺範例</h2>
+  <div class="diagram">
+    <p><strong>例：</strong> B5 依賴 M6–M9，B6 依賴所有 M 系列模組。</p>
+    <p>[B5] ──▶ [M6] ──▶ [M9]</p>
+    <p>[B6] ──▶ [M1–M44]</p>
   </div>
+
+  <a href="/omega-core-internal/index.html" class="top-link">返回首頁</a>
+
 </body>
 </html>
 

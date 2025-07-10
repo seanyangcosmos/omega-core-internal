@@ -1,38 +1,76 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <title>B7｜商業安全封裝模組</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <title>B7｜語法卡片導讀模組</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 { color: #444; }
+    h2 { margin-top: 30px; color: #444; }
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    .top-link {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #007acc;
+      color: #fff;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .top-link:hover {
+      background: #005fa3;
+    }
+    .card-preview {
+      border: 1px solid #ccc;
+      background: #fdfdfd;
+      padding: 16px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>B7｜商業安全封裝模組</h1>
-    <p><strong>模組類型：</strong>V1-B｜商業模組</p>
-    <p><strong>模組代碼：</strong>B7</p>
-    <hr>
 
-    <h2>模組簡述</h2>
-    <p>
-      本模組專為 Sean Yang Core 商業部署而設計，負責語義資料與用戶互動之加密、防偽、合法傳遞等封裝處理，避免語義模組於傳輸與儲存過程中遭遇未授權存取或資訊洩漏。
-    </p>
+  <!-- 引入共用頁首 -->
+  <div id="header"></div>
+  <script>
+    fetch("/omega-core-internal/modules/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+  </script>
 
-    <h2>模組功能</h2>
-    <ul>
-      <li>自動將互動記錄與模組輸出封裝為加密格式。</li>
-      <li>提供 API 層的封裝驗證與簽章比對。</li>
-      <li>支援商業授權條件設定與條款附加。</li>
-      <li>可選擇嵌入水印追蹤技術，防止非法散佈。</li>
-    </ul>
+  <h1 id="top">B7｜語法卡片導讀模組</h1>
 
-    <h2>應用範圍</h2>
-    <p>
-      適用於 SaaS 語義服務平台、付費訂閱模組、專業級語義引擎安全保護與法律合規需求。
-    </p>
+  <h2>📘 模組簡述</h2>
+  <p>本模組負責展示並導讀系統語法卡片，協助使用者快速掌握語義分類、語用範疇與合法性區分。</p>
 
-    <hr>
-    <p class="back-to-top"><a href="#top">返回頁首</a></p>
+  <h2>🔧 模組功能</h2>
+  <ul>
+    <li>顯示語法卡片分類索引與標準語句樣式。</li>
+    <li>支援語法查詢與合法性範例導讀。</li>
+    <li>整合語法卡片與語法結構圖譜對應。</li>
+    <li>提供互動式切換語句類型與語用分析。</li>
+  </ul>
+
+  <h2>🃏 預覽示例</h2>
+  <div class="card-preview">
+    <strong>語法卡片代碼：</strong> SYC-17<br />
+    <strong>語句：</strong>「所有封閉語句皆可視為一時合法。」<br />
+    <strong>類型：</strong> 容悖式封閉語句<br />
+    <strong>合法性註記：</strong> 在語用自洽系統中為準合法
   </div>
+
+  <a href="/omega-core-internal/index.html" class="top-link">返回首頁</a>
+
 </body>
 </html>
 

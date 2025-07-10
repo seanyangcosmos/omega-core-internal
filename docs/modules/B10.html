@@ -2,37 +2,136 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>B10｜語義應用介面（API）商業授權模組</title>
-  <link rel="stylesheet" href="../style.css">
+  <title>B10｜語法卡片互動擴充模組</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 40px;
+      color: #333;
+    }
+    h1 { color: #444; }
+    #filter {
+      margin-bottom: 20px;
+    }
+    .card {
+      background: #f2f2f2;
+      border: 1px solid #ccc;
+      padding: 16px;
+      margin: 10px 0;
+      border-radius: 8px;
+      cursor: grab;
+    }
+    .drag-over {
+      border: 2px dashed #007acc;
+    }
+    .top-link {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #007acc;
+      color: #fff;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>B10｜語義應用介面（API）商業授權模組</h1>
-    <p><strong>模組類型：</strong>V1-B｜商業模組</p>
-    <p><strong>模組代碼：</strong>B10</p>
-    <hr>
 
-    <h2>模組簡述</h2>
-    <p>
-      本模組負責為語義應用介面（API）進行商業授權與訪問控制，支援授權碼、Token 管理、用戶識別與速率限制等 API 經濟模型中的核心機制。
-    </p>
+  <!-- 引入共用頁首 -->
+  <div id="header"></div>
+  <script>
+    fetch("/omega-core-internal/modules/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+  </script>
 
-    <h2>模組功能</h2>
-    <ul>
-      <li>生成與管理 API Key / Token。</li>
-      <li>定義授權範圍（Scope）與使用等級。</li>
-      <li>支援 IP 白名單與 OAuth 驗證擴展。</li>
-      <li>記錄 API 使用日誌、速率限制與安全追蹤。</li>
-    </ul>
+  <h1 id="top">B10｜語法卡片互動擴充模組</h1>
 
-    <h2>應用範圍</h2>
-    <p>
-      適用於需要將 Sean Yang Core 各模組以 API 方式對外提供服務的應用場景，例如企業語義處理接口、插件市場整合、第三方商業合作等。
-    </p>
-
-    <hr>
-    <p class="back-to-top"><a href="#top">返回頁首</a></p>
+  <div id="filter">
+    <label>篩選語義類型：
+      <select id="typeFilter">
+        <option value="all">全部</option>
+        <option value="開放語句">開放語句</option>
+        <option value="封閉語句">封閉語句</option>
+        <option value="容悖語句">容悖語句</option>
+      </select>
+    </label>
+    <button onclick="exportCards()">匯出 JSON</button>
   </div>
+
+  <div id="cards">
+    <div class="card" draggable="true" data-type="開放語句">
+      <strong>語句編號：</strong> SYC-08<br>
+      <strong>語義類型：</strong> 開放語句<br>
+      <strong>合法性：</strong> 合法但需驗證
+    </div>
+
+    <div class="card" draggable="true" data-type="封閉語句">
+      <strong>語句編號：</strong> SYC-13<br>
+      <strong>語義類型：</strong> 封閉語句<br>
+      <strong>合法性：</strong> 完全合法
+    </div>
+
+    <div class="card" draggable="true" data-type="容悖語句">
+      <strong>語句編號：</strong> SYC-27<br>
+      <strong>語義類型：</strong> 容悖語句<br>
+      <strong>合法性：</strong> 模擬中
+    </div>
+  </div>
+
+  <a href="/omega-core-internal/index.html" class="top-link">返回首頁</a>
+
+  <script>
+    // 拖曳功能
+    let dragSrc;
+
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("dragstart", e => {
+        dragSrc = e.target;
+        e.dataTransfer.effectAllowed = "move";
+      });
+      card.addEventListener("dragover", e => {
+        e.preventDefault();
+        e.target.classList.add("drag-over");
+      });
+      card.addEventListener("dragleave", e => {
+        e.target.classList.remove("drag-over");
+      });
+      card.addEventListener("drop", e => {
+        e.preventDefault();
+        e.target.classList.remove("drag-over");
+        if (dragSrc !== e.target) {
+          const cards = document.getElementById("cards");
+          cards.insertBefore(dragSrc, e.target);
+        }
+      });
+    });
+
+    // 篩選功能
+    document.getElementById("typeFilter").addEventListener("change", function () {
+      const selected = this.value;
+      document.querySelectorAll(".card").forEach(card => {
+        const type = card.getAttribute("data-type");
+        card.style.display = (selected === "all" || selected === type) ? "block" : "none";
+      });
+    });
+
+    // 匯出 JSON
+    function exportCards() {
+      const cards = Array.from(document.querySelectorAll(".card")).map(card => {
+        return {
+          編號: card.querySelector("strong:nth-of-type(1)").nextSibling.textContent.trim(),
+          類型: card.getAttribute("data-type"),
+          合法性: card.querySelector("strong:nth-of-type(3)").nextSibling.textContent.trim()
+        };
+      });
+      const blob = new Blob([JSON.stringify(cards, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "syntax_cards.json";
+      a.click();
+    }
+  </script>
 </body>
 </html>
-

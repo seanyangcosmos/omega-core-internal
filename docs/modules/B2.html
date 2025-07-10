@@ -1,37 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>B2｜價值主張生成模組</title>
-  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      color: #333;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+    h1 { color: #444; }
+    h2 { margin-top: 30px; color: #444; }
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    .top-link {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #007acc;
+      color: #fff;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .top-link:hover {
+      background: #005fa3;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>B2｜價值主張生成模組</h1>
-    <p><strong>模組類型：</strong>V1-B｜商業模組</p>
-    <p><strong>模組代碼：</strong>B2</p>
-    <hr>
-    <h2>模組簡述</h2>
-    <p>
-      本模組負責生成具有語義一致性與市場對位性的價值主張。依據核心語義與模組架構，自動轉譯為多語言市場語彙，並支持商業簡報、提案與平台敘述等語境輸出。
-    </p>
 
-    <h2>模組功能</h2>
-    <ul>
-      <li>根據 Sean Yang Core 語義鏈，自動生成產品／服務的價值主張。</li>
-      <li>支持調整語調（專業、親切、激勵等）。</li>
-      <li>輸出格式可選：簡報式、提案式、網站敘述等。</li>
-      <li>可連動 B3 模組進行商業語法封裝。</li>
-    </ul>
+  <!-- 引入共用頁首 -->
+  <div id="header"></div>
+  <script>
+    fetch("/omega-core-internal/modules/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+  </script>
 
-    <h2>輸出範例</h2>
-    <p><strong>輸入：</strong>模組語義核心：哲學性語法與AI自我生成引擎。</p>
-    <p><strong>輸出：</strong>「我們開發全球首套以哲學語法驅動的 AI 自我生成引擎，突破當代語意瓶頸，重構知識與思維生成的未來邊界。」</p>
+  <h1 id="top">B2｜價值主張生成模組</h1>
 
-    <hr>
-    <p class="back-to-top"><a href="#top">返回頁首</a></p>
-  </div>
+  <h2>📘 模組簡述</h2>
+  <p>本模組負責生成具有語義一致性與市場對位性的價值主張。依據核心語義模組架構，自動轉譯為多語言市場語彙，並支持商業簡報、提案與平台敘述等語境輸出。</p>
+
+  <h2>🔧 模組功能</h2>
+  <ul>
+    <li>根據 Sean Yang Core 語義鍵，自動生成產品／服務的價值主張。</li>
+    <li>支持調整語調（專業、親切、激勵等）。</li>
+    <li>輸出格式可選：簡報式、提案式、網站敘述等。</li>
+    <li>可連動 B3 模組進行商業語法封裝。</li>
+  </ul>
+
+  <h2>📤 輸出範例</h2>
+  <p><strong>輸入：</strong>模組語義核心＋哲學性語法與AI自我生成引擎。</p>
+  <p><strong>輸出：</strong>「我們開發全球首套以哲學語語意驅動的 AI 自我生成引擎，突破當代語意瓶頸，重構知識與思維生成的未來界。」</p>
+
+  <a href="/omega-core-internal/index.html" class="top-link">返回首頁</a>
+
 </body>
 </html>
-
 

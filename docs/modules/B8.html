@@ -1,38 +1,75 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <title>B8｜使用者權限與模組訪問控制模組</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <title>B8｜語法圖譜模組</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 { color: #444; }
+    h2 { margin-top: 30px; color: #444; }
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    .top-link {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #007acc;
+      color: #fff;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .top-link:hover {
+      background: #005fa3;
+    }
+    .graph-preview {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      background: #fafafa;
+      padding: 16px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>B8｜使用者權限與模組訪問控制模組</h1>
-    <p><strong>模組類型：</strong>V1-B｜商業模組</p>
-    <p><strong>模組代碼：</strong>B8</p>
-    <hr>
 
-    <h2>模組簡述</h2>
-    <p>
-      本模組負責管理 Sean Yang Core 語義模組的使用者存取權限、模組開放層級與訪問權限設定，提供模組級別的精細化授權控制與存取日誌記錄。
-    </p>
+  <!-- 引入共用頁首 -->
+  <div id="header"></div>
+  <script>
+    fetch("/omega-core-internal/modules/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+  </script>
 
-    <h2>模組功能</h2>
-    <ul>
-      <li>多層級使用者角色定義（管理者、開發者、訂閱者等）。</li>
-      <li>模組級與資料級的權限設定與管控。</li>
-      <li>支援 OAuth / JWT 驗證整合。</li>
-      <li>提供訪問行為記錄、分析與安全稽核功能。</li>
-    </ul>
+  <h1 id="top">B8｜語法圖譜模組</h1>
 
-    <h2>應用範圍</h2>
-    <p>
-      適用於商業部署之語義模組服務平台，特別是需滿足企業資料安全與合規要求的語義應用場景。
-    </p>
+  <h2>📘 模組簡述</h2>
+  <p>本模組用於生成語義語法圖譜，透過視覺方式展示語句關係、結構對位與合法性分層。</p>
 
-    <hr>
-    <p class="back-to-top"><a href="#top">返回頁首</a></p>
+  <h2>🔧 模組功能</h2>
+  <ul>
+    <li>依據語法分類自動繪製結構圖。</li>
+    <li>區分封閉、開放與容悖語句關聯。</li>
+    <li>支援語句關聯性與遞歸性分析圖。</li>
+    <li>匯出 SVG 或 PNG 格式圖檔。</li>
+  </ul>
+
+  <h2>🖼️ 圖譜示例</h2>
+  <div class="graph-preview">
+    <strong>圖譜名稱：</strong> 封閉語法關係網<br />
+    <strong>主要節點：</strong> SYC-01, SYC-05, SYC-17<br />
+    <strong>節點關係：</strong> 對應合法性層級與遞歸語義路徑
   </div>
+
+  <a href="/omega-core-internal/index.html" class="top-link">返回首頁</a>
+
 </body>
 </html>
 
