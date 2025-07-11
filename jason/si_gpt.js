@@ -1,57 +1,57 @@
-function simulateGPT() {
-    const sentence = document.getElementById('sentenceInput').value.trim();
-    const model = document.getElementById('modelSelect').value;
-    const resultDiv = document.getElementById('result');
+// GPT 模式的模擬判準引擎
 
-    if (!sentence) {
-        resultDiv.innerHTML = "⚠️ 請輸入語句，我才能進行分析。";
-        return;
-    }
+function analyzeInputGPT() {
+  const input = document.getElementById("inputText").value.trim();
+  const output = document.getElementById("output");
 
-    let reply = "";
+  if (input === "") {
+    output.innerHTML = "<p>請輸入語句進行分析。</p>";
+    return;
+  }
 
-    // GPT 模型切換
-    if (model === "gpt-4.0") {
-        reply = simulateGPT4(sentence);
-    } else if (model === "gpt-4.0-mini") {
-        reply = simulateGPT4Mini(sentence);
-    } else {
-        reply = "❌ 未知模型選項。";
-    }
+  // ✅ 模擬 GPT 模式的語義回應
+  const result = simulateGPTAnalysis(input);
 
-    resultDiv.innerHTML = reply;
-}
-
-function simulateGPT4(text) {
-    // GPT-4 模擬風格：較嚴謹、邏輯清晰、哲學語氣
-    if (text.includes("悖論") || text.includes("矛盾")) {
-        return "🔍 根據 GPT-4.0 模型模擬，該語句可能隱含語義矛盾，建議以 Sean Yang Core 的結構語法進行剖析。";
-    } else if (text.length < 5) {
-        return "📏 此語句過短，不足以構成完整語義結構。請補足背景或語境。";
-    } else {
-        return "✅ 此語句在 GPT-4.0 模型下判為邏輯連貫、結構穩定，具備良好語義可解性。";
-    }
-}
-
-function simulateGPT4Mini(text) {
-    // GPT-4 Mini 模擬風格：快速、偏結論、偏執行面
-    if (text.includes("悖論") || text.includes("矛盾")) {
-        return "⚠️ 這句話有點問題，可能有語意衝突，建議重寫或拆開處理。";
-    } else if (text.length < 5) {
-        return "📌 太短了，我無法分析，請再補充內容。";
-    } else {
-        return "👍 這句話應該沒問題，符合目前已知的結構邏輯。";
-    }
+  output.innerHTML = `
+    <div class="result-block">
+      <h3>【模擬回應（GPT 模式）】</h3>
+      <p><strong>語句：</strong>${input}</p>
+      <p><strong>語義類型：</strong>${result.type}</p>
+      <p><strong>判斷結果：</strong>${result.judgment}</p>
+      <p><strong>補充說明：</strong>${result.note}</p>
+    </div>
+  `;
 }
 
 function clearInput() {
-    document.getElementById('sentenceInput').value = '';
-    document.getElementById('result').innerHTML = '';
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('button[onclick="simulateGPT()"]').onclick = simulateGPT;
-  document.querySelector('button[onclick="clearInput()"]').onclick = clearInput;
-});
-
+  document.getElementById("inputText").value = "";
+  document.getElementById("output").innerHTML = "";
 }
+
+// ✅ 模擬 GPT 分析函數，可根據語句特徵調整
+function simulateGPTAnalysis(text) {
+  // 🔍 簡單示例：根據關鍵詞判斷語義類型
+  const lower = text.toLowerCase();
+
+  if (lower.includes("如果") && lower.includes("那麼")) {
+    return {
+      type: "邏輯條件句",
+      judgment: "語法完整，結構清晰。",
+      note: "這是一個典型的 if-then 結構，可進一步做邏輯分析。"
+    };
+  } else if (lower.includes("悖論") || lower.includes("矛盾")) {
+    return {
+      type: "悖論指涉句",
+      judgment: "具有內部矛盾潛在性。",
+      note: "建議以封閉語義系統進行交叉驗證。"
+    };
+  } else {
+    return {
+      type: "一般陳述句",
+      judgment: "無明顯結構錯誤。",
+      note: "未觸發已知判準模組，可進一步加入自定義模組擴充。"
+    };
+  }
+}
+
+

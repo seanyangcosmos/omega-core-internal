@@ -2,27 +2,27 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GPT 語義模擬器</title>
-  <link rel="stylesheet" href="../style.css" />
+  <title>Semantic Interpreter GPT</title>
+  <link rel="stylesheet" href="../style/si.css" />
   <script src="../../jason/si_gpt.js" defer></script>
 </head>
 <body>
-  <a href="../index.html" class="back-link">↩ 返回模組索引</a>
-  <h1>GPT 模擬語義引擎</h1>
+  <div class="si-container">
+    <h1>GPT 模擬回應｜語句語義分析</h1>
 
-  <label for="sentenceInput">請輸入語句：</label><br />
-  <textarea id="sentenceInput" rows="4" cols="50"></textarea><br />
+    <div class="si-form">
+      <label for="inputText">請輸入語句：</label>
+      <textarea id="inputText" placeholder="輸入你想分析的語句..."></textarea>
 
-  <label for="modelSelect">選擇 GPT 模型：</label>
-  <select id="modelSelect">
-    <option value="gpt-4.0">GPT-4.0</option>
-    <option value="gpt-4.0-mini">GPT-4.0 Mini</option>
-  </select><br /><br />
+      <div class="si-buttons">
+        <button onclick="analyze()">分析語句</button>
+        <button onclick="clearInput()">清除</button>
+        <a href="../index.html" class="si-link">🔙 回首頁</a>
+      </div>
+    </div>
 
-  <button onclick="simulateGPT()">分析語句</button>
-  <button onclick="clearInput()">清除</button>
-
-  <div id="result" style="margin-top: 20px;"></div>
+    <div id="output" class="si-output"></div>
+  </div>
 </body>
 </html>
+
