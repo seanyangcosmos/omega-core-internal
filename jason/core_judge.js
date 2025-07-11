@@ -1,28 +1,30 @@
-// jason/core_judge.js
-
 function analyzeSentence() {
-    const sentence = document.getElementById('sentenceInput').value.trim();
-    const resultDiv = document.getElementById('result');
+  const input = document.getElementById('sentenceInput').value.trim();
+  const resultBox = document.getElementById('result');
 
-    if (!sentence) {
-        resultDiv.innerHTML = "⚠️ 請輸入語句。";
-        return;
-    }
+  if (!input) {
+    resultBox.innerHTML = "<strong>請輸入語句。</strong>";
+    return;
+  }
 
-    // Demo 回傳結果
-    if (sentence.includes("不確定") || sentence.includes("不存在")) {
-        resultDiv.innerHTML = "【判準結果】：❓ 無法確定或矛盾語句";
-    } else {
-        resultDiv.innerHTML = "【判準結果】：✅ 語句可接受，無明顯矛盾";
-    }
+  // 範例：簡易回應模擬，可替換為 GPT 判準或模組解析
+  let response = '';
+  if (input.includes('矛盾')) {
+    response = '【判準結果】：包含邏輯矛盾 ❌';
+  } else if (input.includes('封閉')) {
+    response = '【判準結果】：封閉語義結構 ✅';
+  } else {
+    response = '【判準結果】：尚無模組命中 ⚠️';
+  }
+
+  resultBox.innerHTML = `
+    <p><strong>【輸入語句】：</strong>${input}</p>
+    <p>${response}</p>
+  `;
 }
 
 function clearInput() {
-    const input = document.getElementById('sentenceInput');
-    const result = document.getElementById('result');
-
-    if (input) input.value = '';
-    if (result) result.innerHTML = '';
+  document.getElementById('sentenceInput').value = '';
+  document.getElementById('result').innerHTML = '';
 }
-
 

@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>V1–B 語義判準模擬器</title>
+  <title>GPT 語義模擬器</title>
   <link rel="stylesheet" href="../style.css" />
-  <script src="../jason/core_judge.js" defer></script>
+  <script src="../../jason/si_gpt.js" defer></script>
 </head>
 <body>
   <a href="../index.html" class="back-link">↩ 返回模組索引</a>
+  <h1>GPT 模擬語義引擎</h1>
 
-  <h1>V1–B 語義判準模擬器</h1>
+  <label for="sentenceInput">請輸入語句：</label><br />
+  <textarea id="sentenceInput" rows="4" cols="50"></textarea><br />
 
-  <label for="sentenceInput">請輸入語句</label><br />
-  <textarea id="sentenceInput" rows="4" cols="40"></textarea><br />
+  <label for="modelSelect">選擇 GPT 模型：</label>
+  <select id="modelSelect">
+    <option value="gpt-4.0">GPT-4.0</option>
+    <option value="gpt-4.0-mini">GPT-4.0 Mini</option>
+  </select><br /><br />
 
-  <button onclick="analyzeSentence()">分析語句</button>
+  <button onclick="simulateGPT()">分析語句</button>
   <button onclick="clearInput()">清除</button>
 
   <div id="result" style="margin-top: 20px;"></div>
 </body>
 </html>
-
-
