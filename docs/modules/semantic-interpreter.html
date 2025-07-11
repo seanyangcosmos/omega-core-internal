@@ -2,39 +2,33 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>語義判準模擬器 V1.2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V1–B｜語義判準模擬器</title>
   <link rel="stylesheet" href="../style.css" />
+  <script src="../jason/core_judge.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1>V1-B 語義判準模擬器</h1>
-    <textarea id="inputText" placeholder="輸入語句，例如：這句話是假的。"></textarea>
-    <button onclick="analyze()">分析語句</button>
-    
-    <div id="resultDisplay" class="result-box">
-      <!-- 回應結果將顯示在此 -->
-    </div>
+
+  <a href="../index.html" class="back-link">↩︎ 返回模組索引</a>
+
+  <h1>V1–B 語義判準模擬器</h1>
+
+  <div class="input-group">
+    <label for="sentence">請輸入語句</label>
+    <textarea id="sentence" rows="3" placeholder="例如：我唯一確定的事就是我們什麼都不確定。"></textarea>
   </div>
 
-  <script type="module">
-    import { evaluateInput } from '../../jason/core_judge.js';
+  <div class="button-group">
+    <button onclick="analyzeSentence()">分析語句</button>
+    <button onclick="clearInput()">清除</button>
+  </div>
 
-    window.analyze = async function () {
-      const input = document.getElementById("inputText").value;
-      const result = await evaluateInput(input);
+  <div class="output-group" id="result" style="display:none;">
+    <p><strong>【語義類型】</strong>：<span id="type"></span></p>
+    <p><strong>【判斷結果】</strong>：<span id="judgment"></span></p>
+    <p><strong>【補充說明】</strong>：<span id="explanation"></span></p>
+    <p><strong>【系統語義備註】</strong>：<span id="notes"></span></p>
+  </div>
 
-      let html = `<h2>主判準結果：${result.mainStatus}</h2><ul>`;
-      result.modules.forEach(mod => {
-        html += `<li><strong>${mod.module}</strong> ➜ ${mod.status}`;
-        if (mod.issues) html += `<br/><small>${mod.issues.join('<br/>')}</small>`;
-        if (mod.message) html += `<br/><small>${mod.message}</small>`;
-        html += `</li>`;
-      });
-      html += `</ul>`;
-
-      document.getElementById("resultDisplay").innerHTML = html;
-    }
-  </script>
 </body>
 </html>
