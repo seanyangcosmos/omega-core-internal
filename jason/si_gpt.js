@@ -47,4 +47,11 @@ function simulateGPT4Mini(text) {
 function clearInput() {
     document.getElementById('sentenceInput').value = '';
     document.getElementById('result').innerHTML = '';
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('button[onclick="simulateGPT()"]').onclick = simulateGPT;
+  document.querySelector('button[onclick="clearInput()"]').onclick = clearInput;
+});
+
 }
