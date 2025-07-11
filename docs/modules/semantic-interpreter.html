@@ -9,60 +9,60 @@
 </head>
 <body>
   <a href="../index.html" class="back-link">← 返回模組索引</a>
+
   <h1>V1-B｜語義互動展示頁</h1>
 
   <div class="input-group">
-    <label for="model">選擇 GPT 模型（模擬）</label>
-    <select id="model">
-      <option value="gpt-4o">GPT-4o</option>
-      <option value="gpt-4">GPT-4</option>
-      <option value="gpt-3.5">GPT-3.5</option>
+    <label for="gpt-model">選擇 GPT 模型（模擬）</label>
+    <select id="gpt-model">
+      <option value="gpt-4.0">GPT-4.0</option>
+      <option value="gpt-4.0-mini">GPT-4.0 mini</option>
     </select>
   </div>
 
   <div class="input-group">
     <label for="sentence">請輸入語句</label>
-    <input type="text" id="sentence" placeholder="例如：所有系統應該會收斂於某種封閉邏輯體內部。" />
+    <input type="text" id="sentence" placeholder="例如：意識是虛構的，但它比現實還真實">
   </div>
 
-  <div class="button-group">
-    <button onclick="runSemanticAnalysis()">執行語義分析</button>
-    <button onclick="clearFields()">清除</button>
+  <div class="input-group">
+    <button onclick="analyzeSemantic()">執行語義分析</button>
+    <button onclick="clearOutput()">清除</button>
   </div>
 
-  <div class="output-box">
-    <p>【語義類型】：<span id="type">(等待輸入)</span></p>
-    <p>【判斷結果】：<span id="result"></span></p>
-    <p>【補充說明】：<span id="note"></span></p>
-    <p>【系統語義備註】：<span id="system"></span></p>
-  </div>
-
-  <div class="quote-box">
-    🔍 引用模組：B3・M9・M17
-  </div>
+  <div id="result" class="result-box"></div>
 
   <script>
-    function runSemanticAnalysis() {
-      const sentence = document.getElementById("sentence").value.trim();
-      const model = document.getElementById("model").value;
+    function analyzeSemantic() {
+      const sentence = document.getElementById('sentence').value;
+      const model = document.getElementById('gpt-model').value;
 
-      if (!sentence) {
-        alert("請輸入語句！");
-        return;
+      // 模擬語義類型分析
+      let type = '哲學語義（模擬）';
+      let result = '✓ 合法';
+      let explanation = '語句符合開放結構中的封閉推論邏輯。';
+      let systemNote = '';
+
+      if (model === 'gpt-4.0') {
+        systemNote = '使用模型：gpt-4.0 模擬語義分析（本地模式）';
+      } else if (model === 'gpt-4.0-mini') {
+        systemNote = '使用模型：gpt-4.0 mini 模擬語義分析（本地模式）';
+      } else {
+        systemNote = '⚠ 未知模型';
       }
 
-      document.getElementById("type").innerText = "哲學語義（模擬）";
-      document.getElementById("result").innerText = "✓ 合法";
-      document.getElementById("note").innerText = "語句符合開放結構中的封閉推論邏輯。";
-      document.getElementById("system").innerText = `使用模型：${model} 模擬語義分析（本地模式）`;
+      document.getElementById('result').innerHTML = `
+        <p><strong>【語義類型】</strong>：${type}</p>
+        <p><strong>【判斷結果】</strong>：${result}</p>
+        <p><strong>【補充說明】</strong>：${explanation}</p>
+        <p><strong>【系統語義備註】</strong>：${systemNote}</p>
+        <p>🔍 引用模組：B3・M9・M17</p>
+      `;
     }
 
-    function clearFields() {
-      document.getElementById("sentence").value = "";
-      document.getElementById("type").innerText = "(等待輸入)";
-      document.getElementById("result").innerText = "";
-      document.getElementById("note").innerText = "";
-      document.getElementById("system").innerText = "";
+    function clearOutput() {
+      document.getElementById('sentence').value = '';
+      document.getElementById('result').innerHTML = '';
     }
   </script>
 </body>
