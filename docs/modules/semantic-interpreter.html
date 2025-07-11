@@ -1,61 +1,84 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>V1-B｜語義互動展示頁</title>
+  <title>V1-B 語義互動展示頁</title>
   <style>
-    body { font-family: "Helvetica Neue", sans-serif; margin: 2rem; background: #f9f9f9; color: #222; }
-    h1 { color: #1e90ff; }
-    label { font-weight: bold; margin-top: 1rem; display: block; }
-    select, textarea, button { width: 100%; padding: 0.5rem; margin-top: 0.5rem; font-size: 1rem; }
-    .output-box { background: #fff; padding: 1rem; border: 1px solid #ccc; margin-top: 1rem; white-space: pre-wrap; }
-    .ref-box { font-size: 0.9rem; color: #666; margin-top: 0.5rem; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #005bbb;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .result-box {
+      background-color: #ffffff;
+      padding: 10px;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 10px;
+      margin-right: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
+
+  <a href="../index.html">← 返回模組索引</a>
   <h1>V1-B｜語義互動展示頁</h1>
 
-  <label for="model">選擇 GPT 模型（模擬）</label>
-  <select id="model">
-    <option>GPT-4o</option>
-    <option>GPT-4o-mini</option>
+  <label for="modelSelect">選擇 GPT 模型（模擬）</label>
+  <select id="modelSelect">
+    <option value="gpt-4o">GPT-4o</option>
+    <option value="gpt-4-mini”>GPT-4-mini</option>
   </select>
 
-  <label for="userInput">請輸入語句</label>
-  <textarea id="userInput" rows="3" placeholder="例如：所有系統最終都會收斂於某個封閉邏輯內部。"></textarea>
+  <p>請輸入語句</p>
+  <textarea id="inputArea" placeholder="例如：所有系統最終都會收斂於某個封閉邏輯內部。"></textarea><br>
+  
+  <button onclick="analyze()">分析語句</button>
+  <button onclick="clearAll()">清除內容</button>
 
-  <button onclick="analyze()">執行語義分析</button>
-
-  <div class="output-box" id="output">
-    【語義類型】：（等待輸入）<br>
-    【判斷結果】：<br>
-    【補充說明】：<br>
-    【系統語義備註】：
-  </div>
-
-  <div class="ref-box" id="refModules">
-    🔎 引用模組：B3、M9、M17
+  <div class="result-box">
+    <p><strong>【語義類型】：</strong><span id="typeOutput">（等待輸入）</span></p>
+    <p><strong>【判斷結果】：</strong><span id="resultOutput"></span></p>
+    <p><strong>【補充說明】：</strong><span id="explanationOutput"></span></p>
+    <p><strong>【系統語義備註】：</strong><span id="noteOutput"></span></p>
   </div>
 
   <script>
     function analyze() {
-      const input = document.getElementById("userInput").value.trim();
-      const output = document.getElementById("output");
-
+      const input = document.getElementById("inputArea").value.trim();
       if (!input) {
-        output.innerHTML = "請輸入一段語句後再執行分析。";
+        alert("請先輸入語句！");
         return;
       }
 
-      // 模擬輸出結果（靜態）
-      output.innerHTML = `
-【語義類型】：封閉系統命題
-【判斷結果】：尚屬可接受，但存在潛在悖論風險
-【補充說明】：依據 M9 模組，此語句隱含排他性斷定，可能在開放結構語境中造成語義衝突。
-【系統語義備註】：建議依據 B3 規則第②項進行結構重構。
-      `.trim();
+      // 模擬回應
+      document.getElementById("typeOutput").innerText = "封閉類語句（模擬）";
+      document.getElementById("resultOutput").innerText = "該語句顯示邏輯最終趨於封閉邏輯收斂。";
+      document.getElementById("explanationOutput").innerText = "語句描述所有系統會收斂於封閉邏輯，呈現強約束性與內聚性結構。";
+      document.getElementById("noteOutput").innerText = "本分析為 GPT 模擬語義推論，尚未連接後端。";
+    }
+
+    function clearAll() {
+      document.getElementById("inputArea").value = "";
+      document.getElementById("typeOutput").innerText = "（等待輸入）";
+      document.getElementById("resultOutput").innerText = "";
+      document.getElementById("explanationOutput").innerText = "";
+      document.getElementById("noteOutput").innerText = "";
     }
   </script>
+
 </body>
 </html>
