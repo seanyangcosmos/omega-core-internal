@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <title>語義分析模擬器 V1-B</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="logic.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>語義分析模擬器 V1–B</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <a href="index.html" class="back-home">← 返回首頁</a>
+  <h2>語義分析模擬器 V1–B</h2>
+  <p>請輸入任意語句。我們會即時進行所有類型的語義分析：</p>
+  
+  <textarea id="inputText" rows="4" placeholder="請輸入語句..."></textarea>
+  <br />
+  <button onclick="clearText()">清除內容</button>
 
-  <h2>語義分析模擬器 V1-B</h2>
-  <p>請輸入任意語句，我們會即時進行所有類型的語義分析：</p>
-
-  <textarea id="inputText" rows="4" cols="60" placeholder="請輸入語句..."></textarea><br><br>
-
-  <button id="clearButton">清除內容</button>
-
-  <div id="outputContainer">
-    <h3>語義類型 A 分析結果</h3>
-    <pre id="outputA">（等待輸入）</pre>
-
-    <h3>語義類型 B 分析結果</h3>
-    <pre id="outputB">（等待輸入）</pre>
-
-    <h3>語義類型 C 分析結果</h3>
-    <pre id="outputC">（等待輸入）</pre>
+  <div id="resultBox">
+    <h3>語義分析結果</h3>
+    <div id="resultOutput">（等待輸入）</div>
   </div>
+
+  <script src="logic.js"></script>
 </body>
 </html>
+
 
 
