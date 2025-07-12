@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
+<script>
+  const token = localStorage.getItem('token');
+  if (!token) {
+    window.location.href = 'login.html';
+  }
+</script>
+
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sean Yang Core - 模組總覽</title>
@@ -123,6 +131,10 @@
   </ul>
 
   <button class="top-button" onclick="window.scrollTo(0,0)">↑ 返回頁首</button>
+  <button onclick="logout()" style="position: absolute; top: 20px; right: 20px;">
+    登出
+  </button>
+
 
 </body>
 </html>

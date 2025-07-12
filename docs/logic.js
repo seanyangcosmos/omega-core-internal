@@ -1,22 +1,39 @@
-const inputTextArea = document.getElementById("inputText");
-const resultOutput = document.getElementById("resultOutput");
+document.getElementById("submitButton").addEventListener("click", async () => {
+  const inputText = document.getElementById("inputText").value.trim();
+  const resultDiv = document.getElementById("result");
 
-function analyzeText() {
-  const text = inputTextArea.value.trim();
-
-  if (text === "") {
-    resultOutput.innerHTML = "（等待輸入）";
+  if (!inputText) {
+    resultDiv.innerHTML = "⚠️ 請輸入語句後再點擊分析。";
     return;
   }
 
-  resultOutput.innerHTML = `
-【語義類型 A】：此句話為封閉語義，主張為確定。<br><br>
-【語義類型 B】：此句話為容悖語義，包含邏輯例外。<br><br>
-【語義類型 C】：此句話為開放語義，暗示探索可能性。
-  `;
-}
+  resultDiv.innerHTML = "⏳ 分析中… 請稍候";
 
-function clearText() {
-  inputTextArea.value = "";
-  resultOutput.innerHTML = "（等待輸入）";
-}
+  try {
+    const response = await fetch("http://202.182.124.69:3001/semantic", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ sentence: inputText })
+    });
+
+    if (!response.ok) {
+      throw new Error(`伺服器回應錯誤：${response.status}`);
+    }
+
+    const result = await response.json();
+
+    resultDiv.innerHTML = `
+      <strong>【語義類型】</strong>：${result.semanticType}<br>
+      <strong>【判斷結果】</strong>：${result.judgement}<br>
+      <strong>【補充說明】</strong>：${result.comment}<br>
+      <strong>【系統語義備註】</strong>：${result.systemNote}
+    `;
+  } catch (error) {
+    console.error("❌ 錯誤：", error);
+    resultDiv.innerHTML = "🚫 無法與後端伺服器連線，請稍後再試或確認伺服器已啟動。";
+  }
+});
+
+

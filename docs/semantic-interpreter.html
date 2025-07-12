@@ -20,7 +20,12 @@
   </div>
 
   <div id="resultOutput">(等待輸入)</div>
-
+  <script>
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = 'login.html';
+  }
+  </script>
   <script src="logic.js"></script>
 </body>
 </html>
