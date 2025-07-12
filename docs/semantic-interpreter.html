@@ -53,6 +53,8 @@
   </style>
 </head>
 <body>
+  
+  <a href="index.html" class="back-home">← 返回首頁</a>
   <h1>語義分析模擬器 V1-B</h1>
 
   <textarea id="inputText" placeholder="請輸入語句..."></textarea><br>
@@ -63,8 +65,6 @@
   <button onclick="clearOutput()">清除結果</button>
 
   <div class="output" id="outputArea">👉 分析結果將顯示於此...</div>
-
-  <button onclick="scrollToTop()" id="scrollTopBtn" title="回到頁首">⬆︎</button>
 
   <script>
     async function analyze(type) {
