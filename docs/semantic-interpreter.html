@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>V1‑B 語義判準模擬器</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>V1-B 語義判準模擬器</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>V1‑B 語義判準模擬器</h1>
+  <h1>V1–B 語義判準模擬器</h1>
 
-  <label for="inputSentence">請輸入語句：</label>
-  <input type="text" id="inputSentence" style="width: 80%;" />
+  <label for="sentenceInput">請輸入語句：</label>
+  <input type="text" id="sentenceInput" placeholder="請輸入語句">
+  <br><br>
 
-  <div class="button-group">
-    <button id="analyzeBtn">分析語句</button>
-    <button id="clearBtn">清除</button>
-  </div>
+  <button onclick="analyzeSentence()">分析語句</button>
+  <button onclick="simulateGPT()">啟動 GPT 模擬分析</button>
+  <button onclick="clearResults()">清除</button>
 
-  <div id="result" class="result" style="margin-top: 1em;"></div>
+  <div id="resultArea" style="margin-top: 20px;"></div>
+  <div id="gptResponse" style="margin-top: 20px; color: #555;"></div>
 
-  <!-- JavaScript -->
-  <script src="logic.js"></script>
+  <button onclick="scrollToTop()" id="scrollTopBtn" title="回到頁首">⬆︎</button>
+
+  <script src="core.js"></script>
+  <script src="si_gpt.js"></script>
 </body>
 </html>
+
+
