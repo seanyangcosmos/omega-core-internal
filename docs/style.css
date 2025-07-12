@@ -1,28 +1,35 @@
 body {
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+  padding: 20px;
+  line-height: 1.6;
   background-color: #f9f9f9;
-  color: #222;
+  color: #333;
 }
 
-input {
-  width: 300px;
-  padding: 8px;
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
   font-size: 16px;
 }
 
 button {
-  padding: 8px 12px;
-  margin: 5px;
-  font-size: 16px;
-  border-radius: 6px;
+  padding: 10px 16px;
+  margin-right: 10px;
+  background-color: #337ab7;
+  color: white;
   border: none;
-  background-color: #e6e6e6;
+  border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #d0d0d0;
+  background-color: #23527c;
+}
+
+#gptResponse {
+  margin-top: 20px;
+  color: #990000;
 }
 
 #scrollTopBtn {
@@ -44,6 +51,5 @@ button:hover {
 #scrollTopBtn:hover {
   background-color: #555;
 }
-
 
 
