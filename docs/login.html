@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
@@ -13,6 +14,39 @@
     <input type="password" id="password" name="password" required><br><br>
     <input type="submit" value="登入">
   </form>
+=======
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>帳號登入</title>
+</head>
+<body>
+  <h2>帳號登入</h2>
+  <form onsubmit="login(event)">
+    <label>帳號：<input type="text" id="username" /></label><br />
+    <label>密碼：<input type="password" id="password" /></label><br />
+    <button type="submit">登入</button>
+  </form>
+
+  <script>
+    async function login(event) {
+      event.preventDefault();
+      const res = await fetch("http://202.18.124.69:3001/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value
+        })
+      });
+
+      const result = await res.json();
+      alert(result.message || "登入成功");
+    }
+  </script>
+>>>>>>> eb1a121 (fix login API URL)
 </body>
 </html>
 
