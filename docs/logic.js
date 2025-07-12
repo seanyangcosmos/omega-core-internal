@@ -1,25 +1,33 @@
-document.getElementById('analyzeBtn').addEventListener('click', function() {
-  const sentence = document.getElementById('inputSentence').value.trim();
-  let resultText = '';
+const inputEl = document.getElementById("inputText");
+const clearBtn = document.getElementById("clearButton");
+const outputA = document.getElementById("outputA");
+const outputB = document.getElementById("outputB");
+const outputC = document.getElementById("outputC");
 
-  // 語義判斷範例：初階封閉語句檢查
-  const isClosed = /。|！|？|；/.test(sentence.slice(-1)); // 檢查結尾是否為中文句號類
+inputEl.addEventListener("input", () => {
+  const text = inputEl.value.trim();
+  if (!text) {
+    outputA.innerText = "（等待輸入）";
+    outputB.innerText = "（等待輸入）";
+    outputC.innerText = "（等待輸入）";
+    return;
+  }
 
-  const result = {
-    "語義類型": "封閉語句",
-    "判斷結果": isClosed ? "是" : "否",
-    "補充說明": isClosed
-      ? "語句具明確結尾標點，初步視為封閉語句。"
-      : "語句未含結尾標點，可能為開放語句或不完整語句。",
-    "系統語義備註": "此為初階句尾封閉檢查，尚未進入結構語法層分析。"
-  };
+  // 類型 A 分析模擬
+  outputA.innerText = `【語義類型】：A\n【判斷結果】：合法\n【補充說明】：句式清晰\n【系統語義備註】：正常結構`;
 
-  resultText += `<pre>${JSON.stringify(result, null, 2)}</pre>`;
-  document.getElementById('result').innerHTML = resultText;
+  // 類型 B 分析模擬
+  outputB.innerText = `【語義類型】：B\n【判斷結果】：容悖語句\n【補充說明】：邏輯存在潛在衝突\n【系統語義備註】：需要人工審查`;
+
+  // 類型 C 分析模擬
+  outputC.innerText = `【語義類型】：C\n【判斷結果】：開放結構\n【補充說明】：語意待定，開放詮釋\n【系統語義備註】：具創造潛能`;
 });
 
-document.getElementById('clearBtn').addEventListener('click', function() {
-  document.getElementById('inputSentence').value = '';
-  document.getElementById('result').innerHTML = '';
+clearBtn.addEventListener("click", () => {
+  inputEl.value = "";
+  outputA.innerText = "（等待輸入）";
+  outputB.innerText = "（等待輸入）";
+  outputC.innerText = "（等待輸入）";
 });
+
 

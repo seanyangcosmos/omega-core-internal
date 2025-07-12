@@ -1,103 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>語義分析模擬器</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 40px;
-      background-color: #f9f9f9;
-    }
-    h1 {
-      color: #333;
-    }
-    textarea {
-      width: 100%;
-      height: 140px;
-      font-size: 16px;
-      padding: 12px;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      resize: vertical;
-    }
-    button {
-      margin-top: 12px;
-      padding: 10px 18px;
-      font-size: 16px;
-      margin-right: 10px;
-      cursor: pointer;
-    }
-    .output {
-      margin-top: 20px;
-      white-space: pre-wrap;
-      background-color: #fff;
-      padding: 14px;
-      border: 1px solid #ccc;
-      min-height: 100px;
-    }
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 40px;
-      right: 30px;
-      z-index: 99;
-      font-size: 16px;
-      background-color: #444;
-      color: white;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: block;
-    }
-  </style>
+  <title>語義分析模擬器 V1-B</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="logic.js"></script>
 </head>
 <body>
-  
   <a href="index.html" class="back-home">← 返回首頁</a>
-  <h1>語義分析模擬器 V1-B</h1>
 
-  <textarea id="inputText" placeholder="請輸入語句..."></textarea><br>
+  <h2>語義分析模擬器 V1-B</h2>
+  <p>請輸入任意語句，我們會即時進行所有類型的語義分析：</p>
 
-  <button onclick="analyze('A')">語義類型 A</button>
-  <button onclick="analyze('B')">語義類型 B</button>
-  <button onclick="analyze('C')">語義類型 C</button>
-  <button onclick="clearOutput()">清除結果</button>
+  <textarea id="inputText" rows="4" cols="60" placeholder="請輸入語句..."></textarea><br><br>
 
-  <div class="output" id="outputArea">👉 分析結果將顯示於此...</div>
+  <button id="clearButton">清除內容</button>
 
-  <script>
-    async function analyze(type) {
-      const inputText = document.getElementById("inputText").value;
-      const output = document.getElementById("outputArea");
-      if (!inputText.trim()) {
-        output.textContent = "⚠️ 請先輸入語句。";
-        return;
-      }
+  <div id="outputContainer">
+    <h3>語義類型 A 分析結果</h3>
+    <pre id="outputA">（等待輸入）</pre>
 
-      output.textContent = "⌛ 正在分析中，請稍候...";
-      try {
-        const response = await fetch(`core_judge.js?type=${type}`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text: inputText })
-        });
-        const result = await response.text();
-        output.textContent = result;
-      } catch (error) {
-        output.textContent = "❌ 分析失敗，請稍後再試。";
-      }
-    }
+    <h3>語義類型 B 分析結果</h3>
+    <pre id="outputB">（等待輸入）</pre>
 
-    function clearOutput() {
-      document.getElementById("inputText").value = "";
-      document.getElementById("outputArea").textContent = "👉 分析結果將顯示於此...";
-    }
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+    <h3>語義類型 C 分析結果</h3>
+    <pre id="outputC">（等待輸入）</pre>
+  </div>
 </body>
 </html>
+
 
