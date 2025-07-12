@@ -1,49 +1,61 @@
 body {
   font-family: "Helvetica Neue", sans-serif;
-  margin: 40px;
-  background-color: #f8f8f8;
+  margin: 2rem;
+  background-color: #f9f9f9;
   color: #333;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
 textarea {
   width: 100%;
-  max-width: 600px;
-  font-size: 16px;
+  height: 100px;
+  margin-top: 10px;
   padding: 10px;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.button-group {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 button {
-  background-color: #337ab7;
-  color: white;
-  padding: 10px 16px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
   cursor: pointer;
+  background-color: #2e78c6;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 button:hover {
-  background-color: #286090;
+  background-color: #1f5ea2;
 }
 
-#resultBox {
-  margin-top: 30px;
-  padding: 20px;
-  max-width: 600px;
+#resultOutput {
+  margin-top: 20px;
+  padding: 15px;
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  font-size: 1rem;
 }
 
-.back-home {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  text-decoration: none;
-  font-size: 16px;
+.back-link {
   color: #6a1b9a;
+  text-decoration: none;
+  font-size: 0.9rem;
 }
-.back-home:hover {
-  text-decoration: underline;
-}
+
+
+
