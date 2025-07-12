@@ -2,23 +2,24 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>V1-B 語義判準模擬器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V1‑B 語義判準模擬器</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a href="index.html" class="back-link">↩ 返回模組索引</a>
-  <h1>V1－B 語義判準模擬器</h1>
+  <h1>V1‑B 語義判準模擬器</h1>
 
-  <label for="inputSentence">請輸入語句</label>
+  <label for="inputSentence">請輸入語句：</label>
+  <input type="text" id="inputSentence" style="width: 80%;" />
 
   <div class="button-group">
     <button id="analyzeBtn">分析語句</button>
     <button id="clearBtn">清除</button>
   </div>
 
-  <div id="result" class="result"></div>
+  <div id="result" class="result" style="margin-top: 1em;"></div>
+
+  <!-- JavaScript -->
   <script src="logic.js"></script>
-  <script src="si_gpt.js" defer></script>
 </body>
 </html>
